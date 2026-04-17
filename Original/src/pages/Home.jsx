@@ -117,21 +117,21 @@ const Home = () => {
                                 </div>
                             </SwiperSlide>
 
-                            {/* Slide 4: Duplicate for Coverflow Depth */}
+                            {/* Slide 4: AMR Video */}
                             <SwiperSlide className="slide slide-video" style={{ width: '70%' }}>
                                 <div className="slide-video-bg">
-                                    <video src="/images/QuantumRobot_2mins.mp4" autoPlay muted loop playsInline
+                                    <video src="/images/AMR_Video.mp4" autoPlay muted loop playsInline
                                         className="slide-bg-video"></video>
                                     <div className="slide-video-overlay"></div>
                                 </div>
                                 <div className="slide-content slide-content-video">
-                                    <div className="hero-badge" style={{color:'#10b981', borderColor:'rgba(16,185,129,0.4)'}}>
-                                        Future of Tech</div>
-                                    <h2 className="hero-title slide-title-forced">Human-Robot Collaboration</h2>
-                                    <p className="hero-description">Robotic precision for the factory of tomorrow.</p>
+                                    <div className="hero-badge" style={{color:'#a855f7', borderColor:'rgba(168,85,247,0.4)'}}>
+                                        Logistics Automation</div>
+                                    <h2 className="hero-title slide-title-forced">Autonomous Mobile Robots</h2>
+                                    <p className="hero-description">Next-generation AMR fleet for smart material handling.</p>
                                     <div className="hero-actions">
                                         <Link to="/solutions" className="btn btn-primary"
-                                            style={{background:'linear-gradient(135deg,#10b981,#06b6d4)'}}>Learn More</Link>
+                                            style={{background:'linear-gradient(135deg,#a855f7,#ec4899)'}}>Explore AMRs</Link>
                                     </div>
                                 </div>
                             </SwiperSlide>
@@ -463,80 +463,7 @@ const Home = () => {
             </section>
 
 
-            {/* ====== CONTACT SECTION ====== */}
-            <section id="contact" className="section section-dark">
-                <div className="container">
-                    <div className="section-header">
-                        <span className="section-tag">Contact</span>
-                        <h2 className="section-title">Let's Build Something <span className="gradient-text">Amazing</span></h2>
-                    </div>
-                    <div className="contact-grid">
-                        <div className="contact-info">
-                            <div className="contact-card">
-                                <div className="contact-icon">📞</div>
-                                <div>
-                                    <h4>Phone</h4>
-                                    <a href="tel:+917010776537">+91 7010776537</a>
-                                </div>
-                            </div>
-                            <div className="contact-card">
-                                <div className="contact-icon">📧</div>
-                                <div>
-                                    <h4>Email</h4>
-                                    <a href="mailto:info.tracerobotics@gmail.com">info.tracerobotics@gmail.com</a>
-                                </div>
-                            </div>
-                            <div className="contact-card">
-                                <div className="contact-icon">🌐</div>
-                                <div>
-                                    <h4>Website</h4>
-                                    <a href="https://www.tracerobotics.in" target="_blank" rel="noopener noreferrer">www.tracerobotics.in</a>
-                                </div>
-                            </div>
-                            <div className="contact-card">
-                                <div className="contact-icon">📍</div>
-                                <div>
-                                    <h4>Location</h4>
-                                    <p>Punjai Puliampatti, Erode</p>
-                                </div>
-                            </div>
-                        </div>
-                        <form className="contact-form" id="contactForm"
-                            action="https://formsubmit.co/info.tracerobotics@gmail.com" method="POST">
-                            <input type="hidden" name="_subject" defaultValue="New Inquiry from Trace Robotics Website!" />
-                            <input type="hidden" name="_template" defaultValue="table" />
-                            <input type="hidden" name="_captcha" defaultValue="false" />
-
-                            <div className="form-group">
-                                <input type="text" id="name" name="name" placeholder="Your Name" required />
-                            </div>
-                            <div className="form-group">
-                                <input type="email" id="email" name="email" placeholder="Your Email" required />
-                            </div>
-                            <div className="form-group">
-                                <select id="subject" name="subject" required defaultValue="">
-                                    <option value="" disabled>What are you interested in?</option>
-                                    <option value="industry">Industry — AMR & Automation</option>
-                                    <option value="support">Support — Workshops & Courses</option>
-                                    <option value="other">Other Inquiry</option>
-                                </select>
-                            </div>
-                            <div className="form-group">
-                                <textarea id="message" name="message" rows="4"
-                                    placeholder="Tell us about your requirements..." required></textarea>
-                            </div>
-                            <button type="submit" className="btn btn-primary btn-full">
-                                Send Message
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                    <path d="M14 2L7 9M14 2l-5 12-2-5-5-2 12-5z" stroke="currentColor" strokeWidth="1.5"
-                                        strokeLinecap="round" strokeLinejoin="round" />
-                                </svg>
-                            </button>
-                        </form>
-                    </div>
-                </div>
-            </section>
-        </>
+            </>
     );
 };
 

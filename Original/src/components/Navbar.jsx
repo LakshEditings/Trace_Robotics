@@ -10,20 +10,20 @@ const Navbar = () => {
         <nav id="navbar" className="navbar">
             <div className="nav-container">
                 <Link to="/" className="nav-logo">
-                    <span className="logo-text">Trace<span className="logo-accent">Robotics</span></span>
+                    <span className="logo-text">Trace <span className="logo-accent">Robotics</span></span>
                 </Link>
 
                 <ul className="nav-links" id="navLinks">
                     <li><NavLink to="/" className={({isActive}) => (isActive && location.hash === "") ? "nav-link active" : "nav-link"}>Home</NavLink></li>
                     <li><NavLink to="/solutions" className={({isActive}) => isActive ? "nav-link active" : "nav-link"}>Solutions</NavLink></li>
                     <li><NavLink to="/products" className={({isActive}) => isActive ? "nav-link active" : "nav-link"}>Products</NavLink></li>
-                    <li><Link to="/#support" className="nav-link">Support</Link></li>
-                    <li><Link to="/#contact" className="nav-link">Contact</Link></li>
-                    <li className="mobile-cta-item"><Link to="/#contact" className="btn btn-primary btn-sm btn-full">Get in Touch</Link></li>
+                    <li><NavLink to="/support" className={({isActive}) => isActive ? "nav-link active" : "nav-link"}>Support</NavLink></li>
+                    <li><NavLink to="/contact" className={({isActive}) => isActive ? "nav-link active" : "nav-link"}>Contact</NavLink></li>
+                    <li className="mobile-cta-item"><Link to="/contact" className="btn btn-primary btn-sm btn-full">Get in Touch</Link></li>
                 </ul>
 
                 <div className="nav-actions">
-                    <Link to="/#contact" className="nav-cta">Get in Touch</Link>
+                    <Link to="/contact" className="nav-cta">Get in Touch</Link>
                     <button className="theme-toggle" id="themeToggle" aria-label="Toggle theme">
                         <svg className="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                             viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
