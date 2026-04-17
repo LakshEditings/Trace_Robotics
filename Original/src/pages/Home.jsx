@@ -75,7 +75,6 @@ const Home = () => {
                 <div className="container">
                     <div className="section-header">
                         <span className="section-tag">About Us</span>
-                        <h2 className="section-title">About <span className="gradient-text">Trace Robotics</span></h2>
                     </div>
 
                     <div className="about-intro">
@@ -99,77 +98,33 @@ const Home = () => {
                     {/* Expertise Pillars */}
                     <div className="about-features">
                         <div className="feature-card">
-                            <div className="feature-icon">
-                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    strokeWidth="1.5">
-                                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-                                </svg>
-                            </div>
-                            <h3>Robotics & Embedded Systems</h3>
-                            <p>Custom robotic solutions integrated with precision embedded systems for real-world industrial
-                                applications.</p>
+                            <h3>Industrial Robot Integration</h3>
+                            <p>Seamless integration of industrial robots into manufacturing environments.</p>
                         </div>
+
                         <div className="feature-card">
-                            <div className="feature-icon">
-                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    strokeWidth="1.5">
-                                    <rect x="2" y="3" width="20" height="14" rx="2" />
-                                    <path d="M8 21h8M12 17v4" />
-                                </svg>
-                            </div>
-                            <h3>Mechanical Design</h3>
-                            <p>End-to-end mechanical engineering from concept and CAD design to fabrication and assembly.
-                            </p>
+                            <h3>Collaborative Robot Solutions</h3>
+                            <p>Safe and flexible human-robot collaboration for modern industries.</p>
                         </div>
+
                         <div className="feature-card">
-                            <div className="feature-icon">
-                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    strokeWidth="1.5">
-                                    <circle cx="12" cy="12" r="3" />
-                                    <path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14" />
-                                </svg>
-                            </div>
-                            <h3>Control Systems</h3>
-                            <p>Intelligent control architectures for automation, motor drives, PLCs, and industrial process
-                                management.</p>
+                            <h3>PLC, HMI, and Control Systems</h3>
+                            <p>Advanced automation using PLC programming, HMI interfaces, and control systems.</p>
                         </div>
+
                         <div className="feature-card">
-                            <div className="feature-icon">
-                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    strokeWidth="1.5">
-                                    <polyline points="16 18 22 12 16 6" />
-                                    <polyline points="8 6 2 12 8 18" />
-                                </svg>
-                            </div>
-                            <h3>Industrial Software</h3>
-                            <p>Custom SCADA, HMI, fleet management, and monitoring software built for smart factory
-                                environments.</p>
+                            <h3>Vision-Based Inspection Systems</h3>
+                            <p>High-precision quality inspection using machine vision and AI.</p>
                         </div>
+
                         <div className="feature-card">
-                            <div className="feature-icon">
-                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    strokeWidth="1.5">
-                                    <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
-                                </svg>
-                            </div>
-                            <h3>Smart Automation</h3>
-                            <p>Turning manual, repetitive, and error-prone processes into efficient, automated production
-                                lines.
-                            </p>
+                            <h3>End-of-Line Automation & Material Handling</h3>
+                            <p>Automation solutions for packaging, sorting, and material movement.</p>
                         </div>
+
                         <div className="feature-card">
-                            <div className="feature-icon">
-                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    strokeWidth="1.5">
-                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-                                    <circle cx="9" cy="7" r="4" />
-                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
-                                </svg>
-                            </div>
-                            <h3>Concept to Deployment</h3>
-                            <p>We partner with industries at every stage — from requirement analysis and design to
-                                installation
-                                and support.</p>
+                            <h3>Smart Manufacturing & Industry 4.0</h3>
+                            <p>Digital transformation with IoT, data analytics, and smart factory solutions.</p>
                         </div>
                     </div>
 
@@ -183,8 +138,8 @@ const Home = () => {
                             </svg>
                         </div>
                         <div className="vision-text">
-                            <h3>Our Long-Term Vision</h3>
-                            <p>At Trace Robotics, our long-term vision is to build <strong>indigenous robotics products and
+                            <h3>Our Vision</h3>
+                            <p>Build <strong>indigenous robotics products and
                                     automation platforms</strong> that are affordable, effective, and designed for
                                 real-world
                                 industrial use — making advanced automation accessible to Indian manufacturing at scale.</p>
@@ -283,23 +238,27 @@ const Home = () => {
             {/* ====== PRODUCTS SECTION ====== */}
             <section id="products" className="section">
                 <div className="container">
-                    <div className="section-header">
-                        <span className="section-tag">Products</span>
-                        <h2 className="section-title">Our Flagship <span className="gradient-text">Hardware</span></h2>
-                    </div>
-                    <div className="split-section reverse">
+                    <div className="split-section">
+
+                        {/* Image */}
                         <div className="split-image" data-aos="fade-left">
                             <div className="image-frame">
-                                <video src="/images/cobot.mp4" autoPlay muted loop playsInline
-                                    style={{width:'100%',height:'100%',objectFit:'cover',borderRadius:'inherit'}}
-                                    aria-label="Product Showcase by Trace Robotics"></video>
+                                <video src="images/cobot.mp4" autoPlay muted loop playsInline
+                                    style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: 'inherit' }}>
+                                </video>
                                 <div className="image-overlay"></div>
                             </div>
                         </div>
+
+                        {/* Content */}
                         <div className="split-content" data-aos="fade-right">
                             <span className="section-tag">Products</span>
-                            <h2 className="section-title">Our Flagship <span className="gradient-text">Hardware</span></h2>
+                            <h2 className="section-title">
+                                Our Flagship <span className="gradient-text">Hardware</span>
+                            </h2>
+
                             <div className="content-list">
+
                                 <div className="content-item">
                                     <div className="item-icon">
                                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -308,19 +267,41 @@ const Home = () => {
                                     </div>
                                     <div className="item-text">
                                         <h4>Trace AMR</h4>
-                                        <p>Equipped with Ouster LiDAR for high-precision mapping and internal logistics.</p>
+                                        <p>Autonomous mobile robot for smart material handling and logistics automation.</p>
+                                    </div>
+                                </div>
+
+                                <div className="content-item">
+                                    <div className="item-icon">
+                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                            <circle cx="10" cy="10" r="4" fill="url(#grad1)" />
+                                        </svg>
+                                    </div>
+                                    <div className="item-text">
+                                        <h4>AMR Control System</h4>
+                                        <p>Advanced navigation, SLAM, and control systems for industrial deployment.</p>
+                                    </div>
+                                </div>
+
+                                <div className="content-item">
+                                    <div className="item-icon">
+                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                            <circle cx="10" cy="10" r="4" fill="url(#grad1)" />
+                                        </svg>
+                                    </div>
+                                    <div className="item-text">
+                                        <h4>Custom Robotics Platforms</h4>
+                                        <p>Modular robotic platforms tailored for industrial and research applications.</p>
                                     </div>
                                 </div>
 
                             </div>
+
                             <Link to="/products" className="btn btn-primary btn-sm">
                                 Explore Products
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                    <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="2"
-                                        strokeLinecap="round" strokeLinejoin="round" />
-                                </svg>
                             </Link>
                         </div>
+
                     </div>
                 </div>
             </section>
@@ -407,27 +388,6 @@ const Home = () => {
                 </div>
             </section>
 
-            {/* ====== CTA SECTION ====== */}
-            <section className="cta-section">
-                <div className="cta-bg-effects">
-                    <div className="cta-orb cta-orb-1"></div>
-                    <div className="cta-orb cta-orb-2"></div>
-                </div>
-                <div className="container">
-                    <div className="cta-content">
-                        <h2 className="cta-title">Ready to Transform Your Industry with <span
-                                className="gradient-text">Robotics</span>?
-                        </h2>
-                        <p className="cta-text">Whether you need industrial automation solutions or want to set up a
-                            cutting-edge
-                            robotics lab — we're here to help you build the future.</p>
-                        <div className="cta-actions">
-                            <Link to="/#contact" className="btn btn-primary btn-lg">Get Started Today</Link>
-                            <a href="tel:+917010776537" className="btn btn-outline btn-lg">📞 Call Now</a>
-                        </div>
-                    </div>
-                </div>
-            </section>
 
             {/* ====== CONTACT SECTION ====== */}
             <section id="contact" className="section section-dark">
