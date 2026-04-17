@@ -49,37 +49,28 @@
     --radius-xl: 28px;
 }
 
-/* ====== LIGHT THEME ====== */
+/* ====== LIGHT THEME – Clean White + Dark Blue ====== */
 [data-theme="light"] {
-    --bg-primary: #f1f5f9;
-    --bg-secondary: #e2e8f0;
-    --bg-tertiary: #cbd5e1;
-    --bg-card: rgba(255, 255, 255, 0.95);
-    --bg-card-hover: rgba(255, 255, 255, 1);
-    --bg-glass: rgba(59, 130, 246, 0.04);
-    --bg-glass-border: rgba(59, 130, 246, 0.12);
+    --bg-primary: #ffffff;
+    --bg-secondary: #f8fafc;
+    --bg-tertiary: #f1f5f9;
+    --bg-card: #ffffff;
+    --bg-card-hover: #f8fafc;
+    --bg-glass: rgba(37, 99, 235, 0.04);
+    --bg-glass-border: rgba(37, 99, 235, 0.12);
     --text-primary: #0f172a;
-    --text-secondary: #475569;
+    --text-secondary: #334155;
     --text-muted: #64748b;
-    --accent-1: #2563eb;
-    --accent-2: #3b82f6;
-    --accent-3: #1d4ed8;
-    --gradient-main: linear-gradient(135deg, #2563eb, #3b82f6, #6366f1);
-    --gradient-subtle: linear-gradient(135deg, rgba(37, 99, 235, .08), rgba(59, 130, 246, .08));
-    --border-color: rgba(15, 23, 42, 0.08);
-    --shadow-sm: 0 2px 10px rgba(15, 23, 42, .04);
-    --shadow-md: 0 10px 30px rgba(15, 23, 42, .08);
-    --shadow-lg: 0 30px 60px rgba(15, 23, 42, .12);
-    --shadow-glow: 0 0 60px rgba(59, 130, 246, .15);
-}
-
-/* ====== RESET ====== */
-*,
-*::before,
-*::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    --accent-1: #1d4ed8;
+    --accent-2: #2563eb;
+    --accent-3: #1e40af;
+    --gradient-main: linear-gradient(135deg, #1d4ed8, #2563eb, #3b82f6);
+    --gradient-subtle: linear-gradient(135deg, rgba(29, 78, 216, .08), rgba(37, 99, 235, .08));
+    --border-color: rgba(15, 23, 42, 0.1);
+    --shadow-sm: 0 2px 10px rgba(15, 23, 42, .06);
+    --shadow-md: 0 10px 30px rgba(15, 23, 42, .1);
+    --shadow-lg: 0 30px 60px rgba(15, 23, 42, .14);
+    --shadow-glow: 0 0 60px rgba(37, 99, 235, .15);
 }
 
 html {
@@ -1788,15 +1779,13 @@ ul {
         backdrop-filter: blur(24px) saturate(180%);
         -webkit-backdrop-filter: blur(24px) saturate(180%);
         align-items: center;
-        justify-content: flex-start; /* Changed from center to prevent top cutoff */
-        gap: 0; /* Managed via item margins/padding */
+        justify-content: center;
+        gap: 8px;
         z-index: 10001;
-        padding: 100px 24px 60px; /* More top padding for logo clearance */
-        overflow-y: auto; /* Enable scroll for long menus */
+        padding: 80px 24px 40px;
+        overflow-y: auto;
         -webkit-overflow-scrolling: touch;
-        transform-origin: top right;
-        transition: all 0.5s var(--ease-out);
-        animation: mobileMenuFade 0.5s var(--ease-out) forwards;
+        animation: mobileMenuFade 0.3s ease forwards;
     }
 
     [data-theme="light"] .nav-links.mobile-open {
