@@ -49,35 +49,35 @@
     --radius-xl: 28px;
 }
 
-/* ====== LIGHT THEME â€” Cyber Arctic Redesign ====== */
+/* ====== LIGHT THEME - Bold Blue ====== */
 [data-theme="light"] {
-    /* Backgrounds: Ice white to cool grey */
-    --bg-primary: #f1f5f9;
-    --bg-secondary: #e2e8f0;
-    --bg-tertiary: #cbd5e1;
-    --bg-card: rgba(255, 255, 255, 0.95);
-    --bg-card-hover: rgba(255, 255, 255, 1);
-    --bg-glass: rgba(59, 130, 246, 0.04);
-    --bg-glass-border: rgba(59, 130, 246, 0.12);
+    /* Backgrounds: Bold Blue System */
+    --bg-primary: #dbeafe;
+    --bg-secondary: #bfdbfe;
+    --bg-tertiary: #93c5fd;
+    --bg-card: #1d4ed8;
+    --bg-card-hover: #2563eb;
+    --bg-glass: rgba(29, 78, 216, 0.08);
+    --bg-glass-border: rgba(29, 78, 216, 0.25);
 
-    /* Text: Deep Navy / Carbon */
+    /* Text: White on cards, dark navy for headings on light bg */
     --text-primary: #0f172a;
-    --text-secondary: #475569;
-    --text-muted: #64748b;
+    --text-secondary: #1e3a8a;
+    --text-muted: #1e40af;
 
-    /* Accents: Electric Blue / Silver Steel */
-    --accent-1: #2563eb;
-    --accent-2: #3b82f6;
+    /* Accents: Vivid bright blues */
+    --accent-1: #3b82f6;
+    --accent-2: #60a5fa;
     --accent-3: #1d4ed8;
-    --gradient-main: linear-gradient(135deg, #2563eb, #3b82f6, #6366f1);
-    --gradient-subtle: linear-gradient(135deg, rgba(37, 99, 235, .08), rgba(59, 130, 246, .08));
+    --gradient-main: linear-gradient(135deg, #1d4ed8, #3b82f6, #60a5fa);
+    --gradient-subtle: linear-gradient(135deg, rgba(29, 78, 216, .15), rgba(59, 130, 246, .15));
 
-    /* Borders & Shadows: Deep Arctic Depth */
-    --border-color: rgba(15, 23, 42, 0.08);
-    --shadow-sm: 0 2px 10px rgba(15, 23, 42, .04);
-    --shadow-md: 0 10px 30px rgba(15, 23, 42, .08);
-    --shadow-lg: 0 30px 60px rgba(15, 23, 42, .12);
-    --shadow-glow: 0 0 60px rgba(59, 130, 246, .15);
+    /* Borders & Shadows */
+    --border-color: rgba(29, 78, 216, 0.2);
+    --shadow-sm: 0 2px 10px rgba(29, 78, 216, .15);
+    --shadow-md: 0 10px 30px rgba(29, 78, 216, .25);
+    --shadow-lg: 0 30px 60px rgba(29, 78, 216, .3);
+    --shadow-glow: 0 0 60px rgba(59, 130, 246, .3);
 }
 
 /* ====== RESET ====== */
@@ -225,8 +225,10 @@ ul {
 }
 
 [data-theme="light"] .navbar {
-    background: rgba(255, 255, 255, 0.1);
-    border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+    background: rgba(219, 234, 254, 0.92);
+    border-bottom: 1px solid rgba(29, 78, 216, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
 }
 
 .navbar.scrolled {

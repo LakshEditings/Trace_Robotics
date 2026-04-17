@@ -2,10 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import { EffectCoverflow, Pagination, Navigation, Autoplay } from 'swiper/modules';
+import { Pagination, Navigation, Autoplay } from 'swiper/modules';
 
 const Home = () => {
     return (
@@ -27,21 +26,13 @@ const Home = () => {
                     <div className="hero-carousel">
                         <button className="carousel-nav prev-slide" aria-label="Previous Slide">❮</button>
                         <Swiper
-                            effect={'coverflow'}
                             grabCursor={true}
                             centeredSlides={true}
-                            slidesPerView={'auto'}
+                            slidesPerView={1}
                             loop={true}
                             autoplay={{
                                 delay: 5000,
                                 disableOnInteraction: false,
-                            }}
-                            coverflowEffect={{
-                                rotate: 20,
-                                stretch: 0,
-                                depth: 150,
-                                modifier: 1,
-                                slideShadows: false,
                             }}
                             pagination={{
                                 el: '.slider-dots',
@@ -53,15 +44,12 @@ const Home = () => {
                                 nextEl: '.next-slide',
                                 prevEl: '.prev-slide',
                             }}
-                            modules={[EffectCoverflow, Pagination, Navigation, Autoplay]}
+                            modules={[Pagination, Navigation, Autoplay]}
                             className="hero-slider"
-                            style={{ 
-                                padding: '50px 0', 
-                                perspective: '1200px'
-                            }}
+                            style={{ width: '100%' }}
                         >
                             {/* Slide 1: Cobot Video */}
-                            <SwiperSlide className="slide slide-video" style={{ width: '70%' }}>
+                            <SwiperSlide className="slide slide-video">
                                 <div className="slide-video-bg">
                                     <video src="/images/cobot.mp4" autoPlay muted loop playsInline
                                         className="slide-bg-video"></video>
@@ -80,7 +68,7 @@ const Home = () => {
                             </SwiperSlide>
 
                             {/* Slide 2: Human-Robot Collaboration */}
-                            <SwiperSlide className="slide slide-video" style={{ width: '70%' }}>
+                            <SwiperSlide className="slide slide-video" >
                                 <div className="slide-video-bg">
                                     <video src="/images/QuantumRobot_2mins.mp4" autoPlay muted loop playsInline
                                         className="slide-bg-video"></video>
@@ -99,7 +87,7 @@ const Home = () => {
                             </SwiperSlide>
                             
                             {/* Slide 3: Duplicate for Coverflow Depth */}
-                            <SwiperSlide className="slide slide-video" style={{ width: '70%' }}>
+                            <SwiperSlide className="slide slide-video" >
                                 <div className="slide-video-bg">
                                     <video src="/images/cobot.mp4" autoPlay muted loop playsInline
                                         className="slide-bg-video"></video>
@@ -118,7 +106,7 @@ const Home = () => {
                             </SwiperSlide>
 
                             {/* Slide 4: AMR Video */}
-                            <SwiperSlide className="slide slide-video" style={{ width: '70%' }}>
+                            <SwiperSlide className="slide slide-video" >
                                 <div className="slide-video-bg">
                                     <video src="/images/AMR_Video.mp4" autoPlay muted loop playsInline
                                         className="slide-bg-video"></video>

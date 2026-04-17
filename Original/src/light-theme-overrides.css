@@ -1,0 +1,80 @@
+/* ====== LIGHT THEME - Card & Section Overrides ====== */
+
+[data-theme="light"] body {
+    background: #dbeafe;
+    color: #0f172a;
+}
+
+/* Feature cards, support cards, product cards - blue bg + white text */
+[data-theme="light"] .feature-card {
+    background: #1d4ed8;
+    color: #ffffff;
+    border: 1px solid rgba(96, 165, 250, 0.3);
+}
+
+[data-theme="light"] .feature-card h3,
+[data-theme="light"] .feature-card p {
+    color: #ffffff;
+}
+
+/* Section headings on light (blue) bg should be dark navy */
+[data-theme="light"] .section-title {
+    color: #0f172a;
+}
+
+[data-theme="light"] .section-tag {
+    color: #1d4ed8;
+    background: rgba(29, 78, 216, 0.1);
+    border-color: rgba(29, 78, 216, 0.25);
+}
+
+/* Content list items on light bg */
+[data-theme="light"] .content-item .item-text h4 {
+    color: #0f172a;
+}
+
+[data-theme="light"] .content-item .item-text p,
+[data-theme="light"] .about-lead {
+    color: #1e3a8a;
+}
+
+[data-theme="light"] .split-section {
+    color: #0f172a;
+}
+
+/* Hero section stays dark */
+[data-theme="light"] .hero {
+    background: var(--bg-primary);
+}
+
+/* About vision box */
+[data-theme="light"] .about-vision {
+    background: rgba(29, 78, 216, 0.08);
+    border-color: rgba(29, 78, 216, 0.2);
+}
+
+/* contact cards blue */
+[data-theme="light"] .contact-card {
+    background: #1d4ed8;
+    color: white;
+}
+
+[data-theme="light"] .contact-card h4,
+[data-theme="light"] .contact-card a,
+[data-theme="light"] .contact-card p {
+    color: #ffffff;
+}
+
+/* Support cards */
+[data-theme="light"] .support-module-card {
+    background: #1d4ed8;
+    color: #ffffff;
+    border: 1px solid rgba(96, 165, 250, 0.25);
+    border-radius: 16px;
+    padding: 28px;
+}
+
+[data-theme="light"] .support-module-card h3,
+[data-theme="light"] .support-module-card p {
+    color: #ffffff;
+}
