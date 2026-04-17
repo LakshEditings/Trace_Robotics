@@ -3,11 +3,26 @@
    Covers: Carousel, Hero, Sections, Cards, Pages, Form, Footer
    ============================================================ */
 
-/* ── Viewport fix ── */
-html, body {
+/* ── Overflow / Scrollbar fix ── */
+body {
     overflow-x: hidden;
     -webkit-text-size-adjust: 100%;
 }
+
+/* Hide Swiper's internal scrollbar if it appears */
+.swiper,
+.hero-slider,
+.hero-carousel {
+    overflow: hidden !important;
+    scrollbar-width: none !important;
+}
+
+.swiper::-webkit-scrollbar,
+.hero-slider::-webkit-scrollbar,
+.hero-carousel::-webkit-scrollbar {
+    display: none !important;
+}
+
 
 /* ── Tablet (max 1024px) already handled in styles.css ── */
 
