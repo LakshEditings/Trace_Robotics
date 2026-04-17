@@ -2891,7 +2891,9 @@ ul {
 
 
 .slide-content-video {
-    display: none;
+    display: flex;
+    position: relative;
+    z-index: 2;
 }
 
 @media (max-width: 768px) {
@@ -3025,4 +3027,22 @@ ul {
 .scroll-to-top:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 24px rgba(99, 102, 241, 0.6);
+}
+
+
+/* Swiper Overrides */
+.swiper-slide.slide, .swiper-slide.slide-video {
+    position: relative !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    height: 100% !important;
+}
+.slide-content-video {
+    display: flex !important;
+}
+
+.scroll-to-top {
+    bottom: 25px !important;
+    right: 100px !important;
 }
