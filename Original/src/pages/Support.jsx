@@ -84,9 +84,9 @@ const Support = () => {
             {/* ── 3 Module Cards ── */}
             <section style={{ padding: '0 0 80px' }}>
                 <div className="container">
-                    <div style={{
+                    <div className="support-module-cards-grid" style={{
                         display: 'grid',
-                        gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+                        gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
                         gap: '28px'
                     }}>
                         {supportModules.map((mod, i) => (
