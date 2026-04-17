@@ -23,7 +23,7 @@ const Navbar = () => {
                 </ul>
 
                 <div className="nav-actions">
-                    <Link to="/contact" className="nav-cta">Get in Touch</Link>
+                    {/* Only one clear CTA */}
                     <button className="theme-toggle" id="themeToggle" aria-label="Toggle theme">
                         <svg className="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
                             viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"
@@ -47,7 +47,7 @@ const Navbar = () => {
                 </div>
 
                 <button className="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navLinks">
-                    <span></span><span></span><span></span>
+                    <span className="bar-1"></span><span className="bar-2"></span><span className="bar-3"></span>
                 </button>
             </div>
         </nav>

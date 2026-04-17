@@ -1,159 +1,72 @@
-/* ====================================================
-   LIGHT THEME OVERRIDES
-   Pure white background, dark blue components & text
-   ==================================================== */
+/* ============================================================
+   LIGHT THEME TARGETED OVERRIDES
+   Focus: Dark Blue Components on Majority White Background
+   ============================================================ */
 
-/* ── Body ── */
 [data-theme="light"] body {
-    background: #ffffff;
-    color: #0f172a;
+    background-color: #ffffff !important;
 }
 
-/* ── Navbar: white bg, dark navy text ── */
-[data-theme="light"] .navbar {
-    background: rgba(255, 255, 255, 0.95) !important;
-    border-bottom: 1px solid rgba(15, 23, 42, 0.1) !important;
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+/* --- Cards: High Contrast Dark Blue --- */
+[data-theme="light"] .feature-card,
+[data-theme="light"] .product-card,
+[data-theme="light"] .contact-card,
+[data-theme="light"] .support-module-card,
+[data-theme="light"] .about-features .feature-card {
+    background: #1e3a8a !important; /* Dark Blue */
+    color: #ffffff !important;
+    border: none !important;
+    box-shadow: 0 10px 30px rgba(30, 58, 138, 0.15) !important;
 }
 
-[data-theme="light"] .navbar.scrolled {
-    background: rgba(255, 255, 255, 0.98) !important;
-    box-shadow: 0 4px 20px rgba(15, 23, 42, 0.08) !important;
+[data-theme="light"] .feature-card h3,
+[data-theme="light"] .product-card h3,
+[data-theme="light"] .contact-card h3,
+[data-theme="light"] .support-module-card h3,
+[data-theme="light"] .about-features .feature-card h3 {
+    color: #ffffff !important;
 }
 
-[data-theme="light"] .nav-link {
+[data-theme="light"] .feature-card p,
+[data-theme="light"] .product-card p,
+[data-theme="light"] .contact-card p,
+[data-theme="light"] .support-module-card p,
+[data-theme="light"] .about-features .feature-card p {
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* Icons inside dark cards */
+[data-theme="light"] .feature-card .icon,
+[data-theme="light"] .contact-card svg {
+    color: #60a5fa !important; /* Light blue accent for icons */
+}
+
+/* --- Section Tags & Titles --- */
+[data-theme="light"] .section-tag {
+    background: rgba(30, 58, 138, 0.1) !important;
     color: #1e3a8a !important;
+    border-color: rgba(30, 58, 138, 0.2) !important;
 }
 
-[data-theme="light"] .nav-link:hover,
-[data-theme="light"] .nav-link.active {
-    color: #1d4ed8 !important;
-    background: rgba(29, 78, 216, 0.08) !important;
-}
-
-[data-theme="light"] .logo-text {
+[data-theme="light"] .section-title {
     color: #0f172a !important;
 }
 
-[data-theme="light"] .nav-cta {
-    color: #1d4ed8 !important;
-    border-color: rgba(29, 78, 216, 0.4) !important;
-}
-
-[data-theme="light"] .nav-cta:hover {
-    background: #1d4ed8 !important;
-    color: #fff !important;
-}
-
-/* ── Section headings ── */
-[data-theme="light"] .section-title {
-    color: #0f172a;
-}
-
-[data-theme="light"] .section-tag {
-    color: #1d4ed8;
-    background: rgba(29, 78, 216, 0.08);
-    border-color: rgba(29, 78, 216, 0.2);
-}
-
-/* ── Cards: white bg, dark blue text ── */
-[data-theme="light"] .feature-card {
-    background: #ffffff;
-    border: 1px solid rgba(29, 78, 216, 0.12);
-    box-shadow: 0 4px 20px rgba(15, 23, 42, 0.06);
-}
-
-[data-theme="light"] .feature-card h3 {
-    color: #1e3a8a;
-}
-
-[data-theme="light"] .feature-card p {
-    color: #334155;
-}
-
-/* ── Content list items ── */
-[data-theme="light"] .content-item .item-text h4 {
-    color: #1e3a8a;
-}
-
-[data-theme="light"] .content-item .item-text p {
-    color: #334155;
-}
-
-/* ── About text ── */
-[data-theme="light"] .about-lead {
-    color: #334155;
-}
-
-[data-theme="light"] .about-vision {
-    background: rgba(29, 78, 216, 0.05);
-    border-color: rgba(29, 78, 216, 0.15);
-}
-
-/* ── Product cards ── */
-[data-theme="light"] .product-card {
-    background: #ffffff;
-    border-color: rgba(29, 78, 216, 0.12);
-}
-
-[data-theme="light"] .product-content h3 {
-    color: #1e3a8a;
-}
-
-[data-theme="light"] .product-content p {
-    color: #334155;
-}
-
-/* ── Contact cards: dark blue bg, white text ── */
-[data-theme="light"] .contact-card {
-    background: #1d4ed8;
-    border-color: #1d4ed8;
-}
-
-[data-theme="light"] .contact-card h4,
-[data-theme="light"] .contact-card a,
-[data-theme="light"] .contact-card p {
-    color: #ffffff;
-}
-
-/* ── Contact form ── */
-[data-theme="light"] .contact-form {
-    background: #ffffff;
-    border: 1px solid rgba(29, 78, 216, 0.12);
-}
-
-/* ── Support module cards ── */
-[data-theme="light"] .support-module-card {
-    background: #ffffff;
-    border: 1px solid rgba(29, 78, 216, 0.15);
-    box-shadow: 0 4px 20px rgba(15, 23, 42, 0.06);
-}
-
-[data-theme="light"] .support-module-card h3,
-[data-theme="light"] .support-module-card p {
-    color: #1e3a8a;
-}
-
-/* ── Sections ── */
-[data-theme="light"] .section-dark {
-    background: #f8fafc;
-}
-
-/* ── Mobile menu overlay in light theme ── */
-[data-theme="light"] .nav-links.mobile-open {
-    background: rgba(255, 255, 255, 0.99) !important;
-}
-
-[data-theme="light"] .nav-links.mobile-open .nav-link {
+/* --- Split Section Content --- */
+[data-theme="light"] .split-content h2,
+[data-theme="light"] .split-content h4 {
     color: #1e3a8a !important;
 }
 
-[data-theme="light"] .nav-links.mobile-open .nav-link:hover {
-    background: rgba(29, 78, 216, 0.08) !important;
-    color: #1d4ed8 !important;
+/* --- Form Improvements --- */
+[data-theme="light"] .form-group input,
+[data-theme="light"] .form-group textarea,
+[data-theme="light"] .form-group select {
+    background: #ffffff !important;
+    border: 1px solid rgba(15, 23, 42, 0.1) !important;
+    color: #0f172a !important;
 }
 
-[data-theme="light"] .hamburger span {
-    background: #1e3a8a;
+[data-theme="light"] .form-group label {
+    color: #1e3a8a !important;
 }

@@ -458,14 +458,29 @@ ul {
     transform: rotate(-45deg) translate(5px, -5px);
 }
 
+@media (max-width: 768px) {
+    .nav-links {
+        display: none !important; /* Hide desktop links */
+    }
+    
+    .hamburger {
+        display: flex !important; /* Show hamburger */
+    }
+    
+    .nav-actions .nav-cta {
+        display: none !important; /* Hide desktop CTA */
+    }
+}
+
 /* ====== HERO ====== */
 .hero {
     position: relative;
-    min-height: 100vh;
+    min-height: 800px;
     display: flex;
     align-items: center;
     padding: 120px 0 80px;
     overflow: hidden;
+    background: var(--bg-primary);
 }
 
 .hero-bg-effects {
@@ -1674,994 +1689,24 @@ ul {
     }
 }
 
-/* Scroll-triggered animations */
-.animate-on-scroll {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: all 0.8s var(--ease-out);
-}
-
-.animate-on-scroll.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* ====== RESPONSIVE ====== */
-@media (max-width: 1024px) {
-    .hero-container {
-        grid-template-columns: 1fr;
-        gap: 40px;
-        text-align: center;
-    }
-
-    .hero-description {
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .hero-actions {
-        justify-content: center;
-    }
-
-    .hero-stats {
-        justify-content: center;
-    }
-
-    .hero-visual {
-        max-width: 500px;
-        margin: 0 auto;
-    }
-
-    .floating-card.card-1 {
-        right: -5%;
-    }
-
-    .floating-card.card-2 {
-        left: -5%;
-    }
-
-    .split-section {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-
-    .split-section.reverse {
-        direction: ltr;
-    }
-
-    .split-content .section-title {
-        text-align: center;
-    }
-
-    .split-content {
-        text-align: center;
-    }
-
-    .about-features {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .contact-grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-
-    .footer-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 32px;
-    }
-}
-
-@media (max-width: 768px) {
-    :root {
-        --section-padding: 80px 0;
-    }
-
-    .nav-links,
-    .nav-cta {
-        display: none;
-    }
-
-    .hamburger {
-        display: flex;
-    }
-
-    /* Mobile menu overlay */
-    .nav-links.mobile-open {
-        display: flex;
-        flex-direction: column;
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(10, 10, 26, 0.98) !important;
-        backdrop-filter: blur(24px) saturate(180%);
-        -webkit-backdrop-filter: blur(24px) saturate(180%);
-        align-items: center;
-        justify-content: center;
-        gap: 8px;
-        z-index: 10001;
-        padding: 80px 24px 40px;
-        overflow-y: auto;
-        -webkit-overflow-scrolling: touch;
-        animation: mobileMenuFade 0.3s ease forwards;
-    }
-
-    [data-theme="light"] .nav-links.mobile-open {
-        background: rgba(37, 99, 235, 0.98) !important;
-    }
-
-    @keyframes mobileMenuFade {
-        from { 
-            opacity: 0; 
-            transform: scale(0.95) translateY(-20px);
-            filter: blur(10px);
-        }
-        to { 
-            opacity: 1; 
-            transform: scale(1) translateY(0);
-            filter: blur(0);
-        }
-    }
-
-    .nav-links.mobile-open li {
-        width: 100%;
-        text-align: center;
-        opacity: 0;
-        transform: translateY(150px);
-        animation: slideUpIn 0.4s var(--ease-out) forwards;
-    }
-
-    /* Stagger link entry (verified 6 items) */
-    .nav-links.mobile-open li:nth-child(1) { animation-delay: 0.1s; }
-    .nav-links.mobile-open li:nth-child(2) { animation-delay: 0.15s; }
-    .nav-links.mobile-open li:nth-child(3) { animation-delay: 0.2s; }
-    .nav-links.mobile-open li:nth-child(4) { animation-delay: 0.25s; }
-    .nav-links.mobile-open li:nth-child(5) { animation-delay: 0.3s; }
-    .nav-links.mobile-open li:nth-child(6) { animation-delay: 0.35s; }
-
-    @keyframes slideUpIn {
-        to { opacity: 1; transform: translateY(0); }
-    }
-
-    .nav-links.mobile-open .nav-link {
-        font-size: 1.35rem; /* Slightly smaller for better fit */
-        font-weight: 600;
-        padding: 12px 24px; /* Balanced padding */
-        color: #fff !important;
-        width: auto; /* Don't force full width to allow better centering if needed */
-        min-width: 200px;
-        justify-content: center;
-        background: transparent;
-        margin-bottom: 4px;
-    }
-
-    .nav-links.mobile-open .nav-link:hover {
-        background: rgba(255, 255, 255, 0.1);
-    }
-
-    .mobile-cta-item {
-        display: block;
-        width: 100%;
-        max-width: 280px;
-        margin-top: 24px;
-    }
-
-    .nav-actions {
-        gap: 8px;
-    }
-
-    .theme-toggle {
-        width: 36px;
-        height: 36px;
-    }
-
-    /* Standardize header alignment */
-    .nav-container {
-        padding: 0 16px;
-        height: 100%;
-        display: flex;
-        align-items: center;
-    }
-
-    .nav-logo {
-        margin-right: auto;
-    }
-
-
-    .nav-links.mobile-open .dropdown-menu {
-        position: static;
-        transform: none;
-        opacity: 1;
-        visibility: visible;
-        background: transparent;
-        border: none;
-        box-shadow: none;
-        backdrop-filter: none;
-        padding: 0;
-        min-width: auto;
-    }
-
-    .hero {
-        padding: 100px 0 60px;
-        min-height: auto;
-    }
-
-    .hero-stats {
-        flex-wrap: wrap;
-        gap: 16px;
-    }
-
-    .stat-divider {
-        display: none;
-    }
-
-    .floating-card {
-        display: none;
-    }
-
-    .about-features {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-
-    .feature-card {
-        padding: 24px;
-        min-height: auto;
-    }
-
-    /* Fix text shadow smudge on mobile headers */
-    .section-header h2,
-    .hero-title,
-    .content-item h2 {
-        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3) !important;
-        letter-spacing: -0.5px;
-    }
-
-    .section-header p {
-        padding: 0 10px;
-    }
-    
-    /* Hero Carousel Mobile Fixes */
-    .slider-nav {
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
-        padding: 0 10px;
-        pointer-events: none;
-    }
-    
-    .prev-slide, .next-slide {
-        width: 36px;
-        height: 36px;
-        background: rgba(255, 255, 255, 0.1);
-        backdrop-filter: blur(10px);
-        pointer-events: auto;
-    }
-
-    .slider-dots {
-        bottom: 15px;
-    }
-
-    .hero-actions {
-        margin-top: 24px;
-        gap: 12px;
-    }
-
-    .carousel-nav {
-        top: auto !important;
-        bottom: 20px !important;
-        transform: scale(0.9) !important;
-        background: rgba(255, 255, 255, 0.05) !important;
-        border: 1px solid rgba(255, 255, 255, 0.1) !important;
-    }
-
-    .carousel-nav.prev-slide {
-        left: 20px !important;
-    }
-
-    .carousel-nav.next-slide {
-        right: 20px !important;
-    }
-
-    .slider-dots {
-        bottom: 28px !important;
-    }
-
-    .slide:not(.slide-video) {
-        padding: 40px 16px 60px !important;
-        flex-direction: column-reverse !important;
-        justify-content: flex-start;
-        text-align: center;
-        height: auto !important;
-        min-height: 600px;
-    }
-
-    .slide-visual {
-        height: 280px !important;
-        flex: none !important;
-        width: 100% !important;
-    }
-
-
-
-
-
-    .image-frame img {
-        height: 300px;
-    }
-
-    .footer-grid {
-        grid-template-columns: 1fr;
-        gap: 32px;
-    }
-
-    .btn {
-        padding: 12px 24px;
-        font-size: 0.875rem;
-    }
-
-    .btn-lg {
-        padding: 14px 28px;
-    }
-}
-
-/* ====== PRODUCTS ====== */
-.product-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 24px;
-}
-
-
-.product-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    transition: all 0.4s var(--ease-out);
-    position: relative;
-}
-
-.product-card:hover {
-    transform: translateY(-8px);
-    background: var(--bg-card-hover);
-    border-color: rgba(99, 102, 241, .2);
-    box-shadow: var(--shadow-glow);
-}
-
-.product-image {
-    width: 100%;
-    height: 300px;
-    background: rgba(255, 255, 255, 0.02);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    padding: 20px;
-}
-
-.product-image img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-    transition: transform 0.6s var(--ease-out);
-}
-
-.product-card:hover .product-image img {
-    transform: scale(1.05);
-}
-
-.product-content {
-    padding: 32px 24px;
-}
-
-.product-content h3 {
-    font-family: var(--font-display);
-    font-size: 1.25rem;
-    font-weight: 600;
-    margin-bottom: 16px;
-    color: var(--text-primary);
-}
-
-.product-content p {
-    font-size: 0.95rem;
-    color: var(--text-secondary);
-    line-height: 1.6;
-}
-
-@media (max-width: 480px) {
-    .hero-title {
-        font-size: 2rem;
-    }
-
-    .section-title {
-        font-size: 1.6rem;
-    }
-
-    .hero-actions {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .cta-actions {
-        flex-direction: column;
-        align-items: center;
-    }
-}
-
-/* ======================================================
-   âœ¦ PREMIUM 3D EXPERIENCE SYSTEM
-   ====================================================== */
-
-/* â”€â”€ 1. Global perspective foundation â”€â”€ */
-#page-wrapper {
-    perspective: 1200px;
-    perspective-origin: 50% 30%;
-    width: 100%;
-}
-
-
-/* â”€â”€ 2. Scroll Progress Bar â”€â”€ */
-#scroll-progress {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 3px;
-    width: 0%;
-    background: var(--gradient-main);
-    z-index: 9999;
-    border-radius: 0 2px 2px 0;
-    transition: width 0.1s linear;
-    box-shadow: 0 0 8px rgba(99, 102, 241, 0.6);
-}
-
-/* â”€â”€ 3. Feature Cards â€” powerful 3D tilt + depth glow â”€â”€ */
-.feature-card {
-    transform-style: preserve-3d;
-    transform: perspective(800px) rotateX(0deg) rotateY(0deg);
-    transition: transform 0.4s var(--ease-out), box-shadow 0.4s ease, border-color 0.3s ease !important;
-    will-change: transform;
-    cursor: default;
-}
-
-.feature-card:hover {
-    box-shadow:
-        0 0 0 1px rgba(99, 102, 241, 0.25),
-        0 20px 60px rgba(99, 102, 241, 0.2),
-        0 40px 80px rgba(168, 85, 247, 0.1),
-        inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
-    border-color: rgba(99, 102, 241, 0.3) !important;
-}
-
-.feature-card::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-            rgba(99, 102, 241, 0.08) 0%,
-            transparent 60%);
-    opacity: 0;
-    transition: opacity 0.4s ease;
-    pointer-events: none;
-}
-
-.feature-card:hover::after {
-    opacity: 1;
-}
-
-[data-theme="light"] .feature-card:hover {
-    box-shadow:
-        0 0 0 1px rgba(91, 33, 182, 0.2),
-        0 20px 60px rgba(91, 33, 182, 0.15),
-        0 40px 80px rgba(13, 148, 136, 0.1),
-        inset 0 1px 0 rgba(255, 255, 255, 0.9) !important;
-}
-
-/* â”€â”€ 4. Product Cards â€” 3D lift + floating shadow â”€â”€ */
-.product-card {
-    transform-style: preserve-3d;
-    transition: transform 0.5s var(--ease-out), box-shadow 0.5s ease !important;
-    will-change: transform;
-}
-
-.product-card:hover {
-    transform: translateY(-16px) rotateX(2deg) !important;
-    box-shadow:
-        0 0 0 1px rgba(99, 102, 241, 0.2),
-        0 8px 16px rgba(0, 0, 0, 0.2),
-        0 32px 64px rgba(99, 102, 241, 0.18),
-        0 64px 80px rgba(168, 85, 247, 0.08) !important;
-}
-
-/* Product image glow on hover */
-.product-card:hover .product-image {
-    background: linear-gradient(135deg, rgba(99, 102, 241, 0.05), rgba(168, 85, 247, 0.05));
-}
-
-/* â”€â”€ 5. Contact Cards â€” slide + 3D depth â”€â”€ */
-.contact-card {
-    transform-style: preserve-3d;
-    transition: transform 0.35s var(--ease-out), box-shadow 0.35s ease, background 0.3s ease !important;
-}
-
-.contact-card:hover {
-    transform: translateX(8px) translateZ(10px) !important;
-    box-shadow: 0 8px 30px rgba(99, 102, 241, 0.15) !important;
-}
-
-/* â”€â”€ 6. Animated Gradient Border â€” feature cards â”€â”€ */
-@property --border-angle {
-    syntax: '<angle>';
-    inherits: false;
-    initial-value: 0deg;
-}
-
-.feature-card.animate-border {
-    border: 1px solid transparent;
-    background-clip: padding-box;
-    position: relative;
-}
-
-.feature-card.animate-border::before {
-    content: '';
-    position: absolute;
-    inset: -1px;
-    border-radius: inherit;
-    padding: 1px;
-    background: conic-gradient(from var(--border-angle),
-            #6366f1, #a855f7, #ec4899, #06b6d4, #6366f1);
-    -webkit-mask:
-        linear-gradient(#fff 0 0) content-box,
-        linear-gradient(#fff 0 0);
-    mask:
-        linear-gradient(#fff 0 0) content-box,
-        linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    animation: rotateBorder 4s linear infinite;
-    opacity: 0;
-    transition: opacity 0.4s ease;
-    z-index: 0;
-}
-
-.feature-card.animate-border:hover::before {
-    opacity: 1;
-}
-
-@keyframes rotateBorder {
-    to {
-        --border-angle: 360deg;
-    }
-}
-
-/* â”€â”€ 7. Hero section â€” 3D depth layering â”€â”€ */
-.hero-orb {
-    transform-style: preserve-3d;
-    animation: orbFloat 20s ease-in-out infinite, orbDepth 8s ease-in-out infinite alternate;
-}
-
-@keyframes orbDepth {
-    0% {
-        filter: blur(100px);
-        opacity: 0.35;
-    }
-
-    100% {
-        filter: blur(130px);
-        opacity: 0.55;
-    }
-}
-
-/* â”€â”€ 8. Hero Carousel â€” 3D entrance + depth â”€â”€ */
-.hero-carousel {
-    transform-style: preserve-3d;
-}
-
-.slide {
-    transform-origin: 50% 50%;
-}
-
-.slide.active {
-    animation: slideEnter 0.7s var(--ease-out) forwards;
-}
-
-@keyframes slideEnter {
-    from {
-        opacity: 0;
-        transform: perspective(800px) translateZ(-40px) scale(0.97);
-    }
-
-    to {
-        opacity: 1;
-        transform: perspective(800px) translateZ(0px) scale(1);
-    }
-}
-
-/* â”€â”€ 9. Image frames â€” premium 3D depth â”€â”€ */
-.image-frame {
-    transform-style: preserve-3d;
-    transition: transform 0.6s var(--ease-out), box-shadow 0.6s ease !important;
-}
-
-.image-frame:hover {
-    transform: perspective(900px) rotateY(-4deg) rotateX(2deg) translateZ(12px) !important;
-    box-shadow:
-        8px 8px 30px rgba(0, 0, 0, 0.3),
-        -4px -4px 20px rgba(99, 102, 241, 0.15),
-        0 40px 80px rgba(0, 0, 0, 0.4) !important;
-}
-
-[data-theme="light"] .image-frame:hover {
-    box-shadow:
-        8px 8px 30px rgba(91, 33, 182, 0.12),
-        -4px -4px 20px rgba(13, 148, 136, 0.1),
-        0 40px 80px rgba(91, 33, 182, 0.1) !important;
-}
-
-/* â”€â”€ 10. Floating cards â€” layered 3D depth â”€â”€ */
-.floating-card {
-    transform-style: preserve-3d;
-    backdrop-filter: blur(24px) saturate(180%);
-    -webkit-backdrop-filter: blur(24px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.12) !important;
-}
-
-.floating-card::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, transparent 100%);
-    pointer-events: none;
-}
-
-/* â”€â”€ 11. Navbar â€” rich 3D frosted glass â”€â”€ */
-.navbar.scrolled {
-    background: rgba(10, 10, 26, 0.7) !important;
-    backdrop-filter: blur(32px) saturate(200%) !important;
-    -webkit-backdrop-filter: blur(32px) saturate(200%) !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
-    box-shadow: 0 4px 32px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(99, 102, 241, 0.1) !important;
-}
-
-[data-theme="light"] .navbar.scrolled {
-    background: rgba(10, 10, 26, 0.95) !important;
-    backdrop-filter: blur(32px) saturate(200%) !important;
-    -webkit-backdrop-filter: blur(32px) saturate(200%) !important;
-    border-bottom: 1px solid rgba(99, 102, 241, 0.2) !important;
-    box-shadow: 0 4px 32px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(99, 102, 241, 0.1) !important;
-}
-
-
-/* â”€â”€ 12. CTA Section â€” 3D perspective depth orbs â”€â”€ */
-.cta-section {
-    position: relative;
-    overflow: hidden;
-}
-
-.cta-section::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(ellipse, rgba(99, 102, 241, 0.08) 0%, transparent 70%);
-    pointer-events: none;
-    animation: breathe 6s ease-in-out infinite;
-}
-
-[data-theme="light"] .cta-section::before {
-    background: radial-gradient(ellipse, rgba(91, 33, 182, 0.08) 0%, transparent 70%);
-}
-
-@keyframes breathe {
-
-    0%,
-    100% {
-        transform: translate(-50%, -50%) scale(1);
-        opacity: 0.7;
-    }
-
-    50% {
-        transform: translate(-50%, -50%) scale(1.1);
-        opacity: 1;
-    }
-}
-
-/* â”€â”€ 13. Section tags â€” animated shimmer â”€â”€ */
-.section-tag {
-    position: relative;
-    overflow: hidden;
-}
-
-.section-tag::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
-    animation: shimmer 3s ease-in-out infinite 1s;
-}
-
-@keyframes shimmer {
-    0% {
-        left: -100%;
-    }
-
-    60%,
-    100% {
-        left: 200%;
-    }
-}
-
-/* â”€â”€ 14. Buttons â€” 3D press effect + glow â”€â”€ */
-.btn {
-    transition: all 0.3s var(--ease-out), box-shadow 0.2s ease !important;
-    transform-style: preserve-3d;
-}
-
-.btn-primary:active {
-    transform: translateY(1px) scale(0.98) !important;
-    box-shadow: 0 2px 10px rgba(99, 102, 241, 0.3) !important;
-}
-
-.btn-primary:hover {
-    transform: translateY(-3px) !important;
-    box-shadow:
-        0 0 0 1px rgba(99, 102, 241, 0.3),
-        0 8px 32px rgba(99, 102, 241, 0.5),
-        0 0 60px rgba(168, 85, 247, 0.2) !important;
-}
-
-/* â”€â”€ 15. Animate-on-scroll â€” staggered 3D entry â”€â”€ */
-.animate-on-scroll {
-    opacity: 0;
-    transform: perspective(800px) translateY(50px) rotateX(8deg);
-    transition: opacity 0.9s var(--ease-out), transform 0.9s var(--ease-out) !important;
-}
-
-.animate-on-scroll.visible {
-    opacity: 1;
-    transform: perspective(800px) translateY(0) rotateX(0deg) !important;
-}
-
-/* â”€â”€ 16. About vision bar â€” glowing 3D panel â”€â”€ */
-.about-vision {
-    transform-style: preserve-3d;
-    transition: transform 0.5s var(--ease-out), box-shadow 0.5s ease;
-}
-
-.about-vision:hover {
-    transform: perspective(1000px) translateZ(8px);
-    box-shadow:
-        0 0 0 1px rgba(99, 102, 241, 0.2),
-        0 20px 60px rgba(99, 102, 241, 0.15) !important;
-}
-
-/* â”€â”€ 17. Hero Badge â€” micro pulse ring â”€â”€ */
-.hero-badge {
-    position: relative;
-}
-
-.hero-badge::before {
-    content: '';
-    position: absolute;
-    inset: -3px;
-    border-radius: 50px;
-    background: var(--gradient-main);
-    opacity: 0;
-    z-index: -1;
-    animation: badgePulse 3s ease-in-out infinite;
-}
-
-@keyframes badgePulse {
-
-    0%,
-    100% {
-        opacity: 0;
-        transform: scale(1);
-    }
-
-    50% {
-        opacity: 0.15;
-        transform: scale(1.04);
-    }
-}
-
-/* â”€â”€ 18. Form inputs â€” 3D focus lift â”€â”€ */
-.form-group input,
-.form-group select,
-.form-group textarea {
-    transition: all 0.35s var(--ease-out), box-shadow 0.3s ease !important;
-}
-
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-    transform: translateY(-2px);
-    box-shadow:
-        0 0 0 2px rgba(99, 102, 241, 0.2),
-        0 8px 20px rgba(99, 102, 241, 0.12) !important;
-}
-
-[data-theme="light"] .form-group input:focus,
-[data-theme="light"] .form-group select:focus,
-[data-theme="light"] .form-group textarea:focus {
-    box-shadow:
-        0 0 0 2px rgba(91, 33, 182, 0.2),
-        0 8px 20px rgba(91, 33, 182, 0.1) !important;
-}
-
-/* â”€â”€ 19. Footer â€” subtle 3D depth line â”€â”€ */
-.footer {
-    position: relative;
-}
-
-.footer::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60%;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.4), rgba(168, 85, 247, 0.4), transparent);
-}
-
-/* â”€â”€ 20. THEME TOGGLE â€” 3D flip animation â”€â”€ */
-.theme-toggle {
-    transition: all 0.4s var(--ease-spring) !important;
-}
-
-.theme-toggle:active {
-    transform: scale(0.85) rotateY(180deg) !important;
-}
-
-/* â”€â”€ 21. Dropdown menu â€” 3D popout â”€â”€ */
-.dropdown-menu {
-    transform-origin: top center;
-    transition: all 0.3s var(--ease-out), transform 0.3s var(--ease-spring) !important;
-}
-
-.dropdown:hover .dropdown-menu {
-    transform: translateX(-50%) translateY(0) perspective(400px) rotateX(0deg) !important;
-}
-
-/* â”€â”€ 22. Grid background grid shimmer in hero â”€â”€ */
-.grid-overlay {
-    animation: gridPulse 8s ease-in-out infinite;
-}
-
-@keyframes gridPulse {
-
-    0%,
-    100% {
-        opacity: 0.6;
-    }
-
-    50% {
-        opacity: 1;
-    }
-}
-
-/* â”€â”€ 23. Nav logo â€“ hover lift â”€â”€ */
-.nav-logo:hover .logo-icon {
-    transform: scale(1.15) rotate(-8deg);
-    transition: transform 0.4s var(--ease-spring);
-    display: inline-block;
-}
-
-/* â”€â”€ 24. Section entrance with depth â”€â”€ */
-.section-header {
-    transform-origin: center top;
-}
-
-/* â”€â”€ 25. Product card glossy top edge â”€â”€ */
-.product-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: var(--gradient-main);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.5s var(--ease-out);
-    z-index: 1;
-}
-
-.product-card:hover::before {
-    transform: scaleX(1);
-}
-
-/* â”€â”€ 26. Vision icon â€“ 3D spin on hover â”€â”€ */
-.vision-icon {
-    transition: transform 0.5s var(--ease-spring) !important;
-}
-
-.about-vision:hover .vision-icon {
-    transform: perspective(300px) rotateY(15deg) scale(1.1);
-}
-
-/* â”€â”€ 27. Light theme body â€“ subtle grid â”€â”€ */
-[data-theme="light"] body {
-    background-image:
-        radial-gradient(ellipse 80% 60% at 20% 0%, rgba(91, 33, 182, 0.06) 0%, transparent 60%),
-        radial-gradient(ellipse 60% 40% at 80% 100%, rgba(13, 148, 136, 0.05) 0%, transparent 60%);
-    background-attachment: fixed;
-}
-
-/* â”€â”€ 28. Carousel nav 3D rotation hint â”€â”€ */
-.carousel-nav:hover {
-    transform: translateY(-50%) scale(1.15) !important;
-    transition: all 0.3s var(--ease-spring) !important;
-}
-
-/* â”€â”€ 29. Feature icon 3D spin on card hover â”€â”€ */
-.feature-card:hover .feature-icon {
-    transform: rotateY(360deg);
-    transition: transform 0.7s var(--ease-out);
-}
-
-/* â”€â”€ 30. Smooth color transitions everywhere â”€â”€ */
-*,
-*::before,
-*::after {
-    transition: background-color 0.4s ease, border-color 0.3s ease, color 0.3s ease;
-}
-
-/* Exception: keep transform-heavy elements from conflicting */
-.btn,
-.feature-card,
-.product-card,
-.contact-card,
-.floating-card,
-.image-frame,
-.about-vision,
-.carousel-nav,
-.theme-toggle {
-    transition: all 0.4s var(--ease-out) !important;
-}
-
 /* ===========================================================
-   âœ¦ ULTRA IMMERSIVE 3D â€” MAXIMUM DEPTH SYSTEM (ARCTIC)
+   FINAL UI NORMALIZATION & 3D SYSTEM
    =========================================================== */
 
-/* â”€â”€ 3D Text Extrusion for Headers â”€â”€ */
+/* --- 3D Text Extrusion (Optimized) --- */
 .hero-title,
 .section-header h2 {
-    text-shadow:
-        0 1px 0 #ccc,
-        0 2px 0 #c9c9c9,
-        0 3px 0 #bbb,
-        0 4px 0 #b9b9b9,
-        0 5px 0 #aaa,
-        0 6px 1px rgba(0, 0, 0, .1),
-        0 0 5px rgba(0, 0, 0, .1),
-        0 1px 3px rgba(0, 0, 0, .3),
-        0 3px 5px rgba(0, 0, 0, .2),
-        0 5px 10px rgba(0, 0, 0, .25),
-        0 10px 10px rgba(0, 0, 0, .2),
-        0 20px 20px rgba(0, 0, 0, .15);
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    letter-spacing: -0.02em;
 }
 
 [data-theme="light"] .hero-title,
 [data-theme="light"] .section-header h2 {
-    text-shadow:
-        0 1px 0 #cbd5e1,
-        0 2px 0 #94a3b8,
-        0 10px 20px rgba(15, 23, 42, 0.1);
+    text-shadow: none;
+    color: #1e3a8a !important;
 }
 
-/* â”€â”€ Canvas particle field â”€â”€ */
+/* --- Hero & Carousel Structure --- */
 .hero-canvas {
     position: absolute;
     inset: 0;
@@ -2669,337 +1714,83 @@ ul {
     height: 100%;
     pointer-events: none;
     z-index: 0;
-    opacity: 0.85;
+    opacity: 0.8;
 }
 
-/* â”€â”€ Depth fog at bottom of hero â”€â”€ */
 .hero-fog-bottom {
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
-    height: 200px;
+    height: 150px;
     background: linear-gradient(to bottom, transparent, var(--bg-primary));
     pointer-events: none;
     z-index: 2;
 }
 
-/* â”€â”€ Extreme depth on hero carousel â”€â”€ */
 .hero-carousel {
-    transform-style: preserve-3d;
-    box-shadow:
-        0 0 0 1px rgba(99, 102, 241, 0.1),
-        0 40px 100px rgba(0, 0, 0, 0.7),
-        0 80px 160px rgba(99, 102, 241, 0.2),
-        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+    background: transparent;
+    overflow: hidden;
+    position: relative;
 }
 
 [data-theme="light"] .hero-carousel {
-    background: linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(241, 245, 249, 0.8)) !important;
-    border: 1px solid rgba(59, 130, 246, 0.2) !important;
-    box-shadow:
-        0 40px 100px rgba(15, 23, 42, 0.1),
-        inset 0 1px 0 rgba(255, 255, 255, 1) !important;
+    background: #ffffff !important;
+    border: 1px solid rgba(30, 58, 138, 0.1) !important;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.05) !important;
 }
 
-/* â”€â”€ Arctic Light theme element overrides â”€â”€ */
-[data-theme="light"] .slide-visual-bg {
-    background: linear-gradient(135deg, rgba(226, 232, 240, 0.8), rgba(203, 213, 225, 0.5)) !important;
-    border: 1px solid rgba(59, 130, 246, 0.15) !important;
-}
-
-[data-theme="light"] .hero-image {
-    filter: drop-shadow(0 20px 40px rgba(37, 99, 235, 0.15)) !important;
-}
-
-[data-theme="light"] .feature-card:hover {
-    box-shadow:
-        0 0 0 1px rgba(59, 130, 246, 0.3),
-        0 30px 70px rgba(15, 23, 42, 0.12) !important;
-}
-
-[data-theme="light"] .social-link {
-    background: #fff !important;
-    color: #2563eb !important;
-    border: 1px solid rgba(59, 130, 246, 0.1) !important;
-}
-
-[data-theme="light"] .footer::before {
-    background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.3), transparent) !important;
-}
-
-/* â”€â”€ Ultra 3D card perspective â”€â”€ */
-.feature-card,
-.product-card {
-    transform-style: preserve-3d;
-}
-
-/* â”€â”€ 3D Depth Scale on section entries â”€â”€ */
-.section-header {
-    transform-style: preserve-3d;
-}
-
-/* â”€â”€ Mega depth hero glow pulse â”€â”€ */
-.hero-orb-1 {
-    animation: orbFloat 18s ease-in-out infinite, orbPulse 10s ease-in-out infinite;
-}
-
-.hero-orb-2 {
-    animation: orbFloat 22s ease-in-out infinite reverse, orbPulse 14s ease-in-out infinite 2s;
-}
-
-.hero-orb-3 {
-    animation: orbFloat 15s ease-in-out infinite 5s, orbPulse 8s ease-in-out infinite 4s;
-}
-
-@keyframes orbPulse {
-
-    0%,
-    100% {
-        transform: scale(1) translateZ(0);
-    }
-
-    50% {
-        transform: scale(1.15) translateZ(50px);
-    }
-}
-
-/* â”€â”€ Grid overlay animated â”€â”€ */
-.grid-overlay {
-    animation: gridPulse 8s ease-in-out infinite !important;
-    opacity: 0.15;
-}
-
-@keyframes gridPulse {
-
-    0%,
-    100% {
-        opacity: 0.1;
-        transform: scale(1);
-    }
-
-    50% {
-        opacity: 0.2;
-        transform: scale(1.05);
-    }
-}
-
-/* â”€â”€ Cursor Glow Layer â”€â”€ */
-#cursor-glow {
-    position: fixed;
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, rgba(99, 102, 241, 0.1) 0%, transparent 70%);
-    pointer-events: none;
-    z-index: -1;
-    transform: translate(-50%, -50%);
-    transition: width 0.3s, height 0.3s;
-}
-
-[data-theme="light"] #cursor-glow {
-    background: radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, transparent 70%);
-}
-
-/* ====== LOGO â€” Always White ====== */
-.logo-text-white {
-    font-family: var(--font-display);
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: #ffffff !important;
-}
-
-.logo-accent-white {
-    color: #ffffff !important;
-    background: var(--gradient-main);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-/* ====== HERO TITLES â€” White in dark, Dark in light ====== */
-.hero-title {
-    color: #ffffff;
-}
-
-[data-theme="light"] .hero-title {
-    color: #0f172a;
-}
-
-.slide-title-forced {
-    color: #ffffff !important;
-}
-
-/* ====== VIDEO SLIDES ====== */
+/* --- Slide Logic: Central alignment --- */
 .slide-video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    transition: opacity 0.6s ease-in-out, visibility 0.6s ease-in-out;
-    display: flex;
-    align-items: center;
-    padding: 20px 60px;
-    gap: 0;
+    position: relative !important;
+    width: 100% !important;
+    height: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 !important;
 }
-
-.slide-video.active {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-}
-
-.slide-video-bg {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-    overflow: hidden;
-    border-radius: inherit;
-}
-
-.slide-bg-video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.slide-video-overlay {
-    position: absolute;
-    inset: 0;
-    background: transparent;
-    display: none;
-}
-
 
 .slide-content-video {
-    display: flex;
     position: relative;
-    z-index: 2;
-}
-
-@media (max-width: 768px) {
-    .slide-content-video {
-        flex: 1;
-        max-width: 100%;
-    }
-
-    .slide-video {
-        padding: 20px 24px;
-    }
-}
-
-/* ====== WHATSAPP FLOAT BUTTON ====== */
-.whatsapp-float {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-
-    z-index: 99999;
-    width: 62px;
-    height: 62px;
-    background: #25d366;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 8px 28px rgba(37, 211, 102, 0.5);
-    text-decoration: none;
-    cursor: pointer;
-    transition: transform 0.3s var(--ease-spring), box-shadow 0.3s ease;
-}
-
-.whatsapp-float:hover {
-    transform: scale(1.12) translateY(-4px);
-    box-shadow: 0 14px 40px rgba(37, 211, 102, 0.65);
-}
-
-.wa-pulse {
-    position: absolute;
+    z-index: 5;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
     width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    background: #25d366;
-    opacity: 0.4;
-    animation: waPulse 2.5s ease-out infinite;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.wa-pulse-2 {
-    animation-delay: 1.25s;
+.swiper-slide {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
 }
 
-@keyframes waPulse {
-    0% {
-        transform: scale(1);
-        opacity: 0.4;
-    }
-
-    100% {
-        transform: scale(2.1);
-        opacity: 0;
-    }
-}
-
-.wa-label {
-    position: absolute;
-    right: 64px;
-
-    top: 50%;
-    transform: translateY(-50%) translateX(10px);
-    background: #25d366;
-    color: #fff;
-    padding: 9px 18px;
-    border-radius: 10px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    white-space: nowrap;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
-    font-family: var(--font-primary);
-}
-
-.wa-label::after {
-    content: '';
-    position: absolute;
-    right: -8px;
-    top: 50%;
-    transform: translateY(-50%);
-    border-top: 7px solid transparent;
-    border-bottom: 7px solid transparent;
-    border-left: 8px solid #25d366;
-}
-
-.whatsapp-float:hover .wa-label {
-    opacity: 1;
-    transform: translateY(-50%) translateX(0);
-}
-
-/* ====== SCROLL TO TOP ====== */
+/* --- Navigation & Utility --- */
 .scroll-to-top {
     position: fixed;
-    bottom: 90px;
-    right: 24px;
-    width: 48px;
-    height: 48px;
-    background: var(--gradient-main);
+    bottom: 30px;
+    right: 30px;
+    width: 52px;
+    height: 52px;
+    background: #1e3a8a;
     color: white;
     border: none;
     border-radius: 50%;
-    border: 1px solid rgba(255, 255, 255, 0.2);
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    z-index: 999;
+    z-index: 100000;
     opacity: 0;
     pointer-events: none;
     transform: translateY(20px);
-    transition: all 0.3s var(--ease-spring);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+    transition: all 0.4s var(--ease-spring);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 }
 
 .scroll-to-top.visible {
@@ -3009,24 +1800,15 @@ ul {
 }
 
 .scroll-to-top:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 24px rgba(99, 102, 241, 0.6);
+    transform: translateY(-8px);
+    background: #2563eb;
+    box-shadow: 0 12px 30px rgba(30, 58, 138, 0.3);
 }
 
-
-/* Swiper Overrides */
-.swiper-slide.slide, .swiper-slide.slide-video {
-    position: relative !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-    pointer-events: auto !important;
-    height: 100% !important;
-}
-.slide-content-video {
-    display: flex !important;
+[data-theme="light"] .scroll-to-top {
+    box-shadow: 0 8px 25px rgba(30, 58, 138, 0.2);
 }
 
-.scroll-to-top {
-    bottom: 25px !important;
-    right: 100px !important;
+.whatsapp-float {
+    z-index: 99999;
 }
