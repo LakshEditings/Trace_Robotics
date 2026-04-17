@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import { useLegacyScript } from '../hooks/useLegacyScript';
@@ -6,6 +6,27 @@ import { useLegacyScript } from '../hooks/useLegacyScript';
 const Layout = ({ children }) => {
     // Run the global interactions hook
     useLegacyScript();
+
+    const [showScrollTop, setShowScrollTop] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 300) {
+                setShowScrollTop(true);
+            } else {
+                setShowScrollTop(false);
+            }
+        };
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    };
 
     return (
         <div id="page-wrapper">
@@ -23,6 +44,17 @@ const Layout = ({ children }) => {
                 </svg>
                 <span className="wa-label">Chat with us</span>
             </a>
+
+            {/* Scroll to Top Button */}
+            <button 
+                className={`scroll-to-top ${showScrollTop ? 'visible' : ''}`}
+                onClick={scrollToTop}
+                aria-label="Scroll to top"
+            >
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M18 15l-6-6-6 6"/>
+                </svg>
+            </button>
         </div>
     );
 };

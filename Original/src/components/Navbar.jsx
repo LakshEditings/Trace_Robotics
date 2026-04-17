@@ -10,7 +10,7 @@ const Navbar = () => {
         <nav id="navbar" className="navbar">
             <div className="nav-container">
                 <Link to="/" className="nav-logo">
-                    <span className="logo-text" style={{ color: '#ffffff' }}>Trace <span style={{ color: '#ffffff' }}>Robotics</span></span>
+                    <span className="logo-text">Trace<span className="logo-accent">Robotics</span></span>
                 </Link>
 
                 <ul className="nav-links" id="navLinks">

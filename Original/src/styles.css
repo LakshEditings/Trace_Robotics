@@ -49,7 +49,7 @@
     --radius-xl: 28px;
 }
 
-/* ====== LIGHT THEME — Cyber Arctic Redesign ====== */
+/* ====== LIGHT THEME â€” Cyber Arctic Redesign ====== */
 [data-theme="light"] {
     /* Backgrounds: Ice white to cool grey */
     --bg-primary: #f1f5f9;
@@ -225,10 +225,9 @@ ul {
 }
 
 [data-theme="light"] .navbar {
-    background: rgb(0, 106, 255);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(15, 23, 42, 0.08);
 }
-
 
 .navbar.scrolled {
     background: rgba(10, 10, 26, 0.95);
@@ -238,9 +237,9 @@ ul {
 }
 
 [data-theme="light"] .navbar.scrolled {
-    background: rgba(200, 0, 255, 0.964);
-    border-bottom: 1px solid rgba(99, 102, 241, 0.2);
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    background: rgba(255, 255, 255, 0.96);
+    border-bottom: 1px solid rgba(15, 23, 42, 0.1);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
 }
 
 
@@ -258,6 +257,22 @@ ul {
     align-items: center;
     gap: 10px;
     z-index: 1001;
+    text-decoration: none;
+}
+
+.logo-text {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+}
+
+.logo-accent {
+    background: var(--gradient-main);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding-left: 2px;
 }
 
 .logo-icon {
@@ -2097,10 +2112,10 @@ ul {
 }
 
 /* ======================================================
-   ✦ PREMIUM 3D EXPERIENCE SYSTEM
+   âœ¦ PREMIUM 3D EXPERIENCE SYSTEM
    ====================================================== */
 
-/* ── 1. Global perspective foundation ── */
+/* â”€â”€ 1. Global perspective foundation â”€â”€ */
 #page-wrapper {
     perspective: 1200px;
     perspective-origin: 50% 30%;
@@ -2108,7 +2123,7 @@ ul {
 }
 
 
-/* ── 2. Scroll Progress Bar ── */
+/* â”€â”€ 2. Scroll Progress Bar â”€â”€ */
 #scroll-progress {
     position: fixed;
     top: 0;
@@ -2122,7 +2137,7 @@ ul {
     box-shadow: 0 0 8px rgba(99, 102, 241, 0.6);
 }
 
-/* ── 3. Feature Cards — powerful 3D tilt + depth glow ── */
+/* â”€â”€ 3. Feature Cards â€” powerful 3D tilt + depth glow â”€â”€ */
 .feature-card {
     transform-style: preserve-3d;
     transform: perspective(800px) rotateX(0deg) rotateY(0deg);
@@ -2165,7 +2180,7 @@ ul {
         inset 0 1px 0 rgba(255, 255, 255, 0.9) !important;
 }
 
-/* ── 4. Product Cards — 3D lift + floating shadow ── */
+/* â”€â”€ 4. Product Cards â€” 3D lift + floating shadow â”€â”€ */
 .product-card {
     transform-style: preserve-3d;
     transition: transform 0.5s var(--ease-out), box-shadow 0.5s ease !important;
@@ -2186,7 +2201,7 @@ ul {
     background: linear-gradient(135deg, rgba(99, 102, 241, 0.05), rgba(168, 85, 247, 0.05));
 }
 
-/* ── 5. Contact Cards — slide + 3D depth ── */
+/* â”€â”€ 5. Contact Cards â€” slide + 3D depth â”€â”€ */
 .contact-card {
     transform-style: preserve-3d;
     transition: transform 0.35s var(--ease-out), box-shadow 0.35s ease, background 0.3s ease !important;
@@ -2197,7 +2212,7 @@ ul {
     box-shadow: 0 8px 30px rgba(99, 102, 241, 0.15) !important;
 }
 
-/* ── 6. Animated Gradient Border — feature cards ── */
+/* â”€â”€ 6. Animated Gradient Border â€” feature cards â”€â”€ */
 @property --border-angle {
     syntax: '<angle>';
     inherits: false;
@@ -2242,7 +2257,7 @@ ul {
     }
 }
 
-/* ── 7. Hero section — 3D depth layering ── */
+/* â”€â”€ 7. Hero section â€” 3D depth layering â”€â”€ */
 .hero-orb {
     transform-style: preserve-3d;
     animation: orbFloat 20s ease-in-out infinite, orbDepth 8s ease-in-out infinite alternate;
@@ -2260,7 +2275,7 @@ ul {
     }
 }
 
-/* ── 8. Hero Carousel — 3D entrance + depth ── */
+/* â”€â”€ 8. Hero Carousel â€” 3D entrance + depth â”€â”€ */
 .hero-carousel {
     transform-style: preserve-3d;
 }
@@ -2285,7 +2300,7 @@ ul {
     }
 }
 
-/* ── 9. Image frames — premium 3D depth ── */
+/* â”€â”€ 9. Image frames â€” premium 3D depth â”€â”€ */
 .image-frame {
     transform-style: preserve-3d;
     transition: transform 0.6s var(--ease-out), box-shadow 0.6s ease !important;
@@ -2306,7 +2321,7 @@ ul {
         0 40px 80px rgba(91, 33, 182, 0.1) !important;
 }
 
-/* ── 10. Floating cards — layered 3D depth ── */
+/* â”€â”€ 10. Floating cards â€” layered 3D depth â”€â”€ */
 .floating-card {
     transform-style: preserve-3d;
     backdrop-filter: blur(24px) saturate(180%);
@@ -2323,7 +2338,7 @@ ul {
     pointer-events: none;
 }
 
-/* ── 11. Navbar — rich 3D frosted glass ── */
+/* â”€â”€ 11. Navbar â€” rich 3D frosted glass â”€â”€ */
 .navbar.scrolled {
     background: rgba(10, 10, 26, 0.7) !important;
     backdrop-filter: blur(32px) saturate(200%) !important;
@@ -2341,7 +2356,7 @@ ul {
 }
 
 
-/* ── 12. CTA Section — 3D perspective depth orbs ── */
+/* â”€â”€ 12. CTA Section â€” 3D perspective depth orbs â”€â”€ */
 .cta-section {
     position: relative;
     overflow: hidden;
@@ -2378,7 +2393,7 @@ ul {
     }
 }
 
-/* ── 13. Section tags — animated shimmer ── */
+/* â”€â”€ 13. Section tags â€” animated shimmer â”€â”€ */
 .section-tag {
     position: relative;
     overflow: hidden;
@@ -2406,7 +2421,7 @@ ul {
     }
 }
 
-/* ── 14. Buttons — 3D press effect + glow ── */
+/* â”€â”€ 14. Buttons â€” 3D press effect + glow â”€â”€ */
 .btn {
     transition: all 0.3s var(--ease-out), box-shadow 0.2s ease !important;
     transform-style: preserve-3d;
@@ -2425,7 +2440,7 @@ ul {
         0 0 60px rgba(168, 85, 247, 0.2) !important;
 }
 
-/* ── 15. Animate-on-scroll — staggered 3D entry ── */
+/* â”€â”€ 15. Animate-on-scroll â€” staggered 3D entry â”€â”€ */
 .animate-on-scroll {
     opacity: 0;
     transform: perspective(800px) translateY(50px) rotateX(8deg);
@@ -2437,7 +2452,7 @@ ul {
     transform: perspective(800px) translateY(0) rotateX(0deg) !important;
 }
 
-/* ── 16. About vision bar — glowing 3D panel ── */
+/* â”€â”€ 16. About vision bar â€” glowing 3D panel â”€â”€ */
 .about-vision {
     transform-style: preserve-3d;
     transition: transform 0.5s var(--ease-out), box-shadow 0.5s ease;
@@ -2450,7 +2465,7 @@ ul {
         0 20px 60px rgba(99, 102, 241, 0.15) !important;
 }
 
-/* ── 17. Hero Badge — micro pulse ring ── */
+/* â”€â”€ 17. Hero Badge â€” micro pulse ring â”€â”€ */
 .hero-badge {
     position: relative;
 }
@@ -2480,7 +2495,7 @@ ul {
     }
 }
 
-/* ── 18. Form inputs — 3D focus lift ── */
+/* â”€â”€ 18. Form inputs â€” 3D focus lift â”€â”€ */
 .form-group input,
 .form-group select,
 .form-group textarea {
@@ -2504,7 +2519,7 @@ ul {
         0 8px 20px rgba(91, 33, 182, 0.1) !important;
 }
 
-/* ── 19. Footer — subtle 3D depth line ── */
+/* â”€â”€ 19. Footer â€” subtle 3D depth line â”€â”€ */
 .footer {
     position: relative;
 }
@@ -2520,7 +2535,7 @@ ul {
     background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.4), rgba(168, 85, 247, 0.4), transparent);
 }
 
-/* ── 20. THEME TOGGLE — 3D flip animation ── */
+/* â”€â”€ 20. THEME TOGGLE â€” 3D flip animation â”€â”€ */
 .theme-toggle {
     transition: all 0.4s var(--ease-spring) !important;
 }
@@ -2529,7 +2544,7 @@ ul {
     transform: scale(0.85) rotateY(180deg) !important;
 }
 
-/* ── 21. Dropdown menu — 3D popout ── */
+/* â”€â”€ 21. Dropdown menu â€” 3D popout â”€â”€ */
 .dropdown-menu {
     transform-origin: top center;
     transition: all 0.3s var(--ease-out), transform 0.3s var(--ease-spring) !important;
@@ -2539,7 +2554,7 @@ ul {
     transform: translateX(-50%) translateY(0) perspective(400px) rotateX(0deg) !important;
 }
 
-/* ── 22. Grid background grid shimmer in hero ── */
+/* â”€â”€ 22. Grid background grid shimmer in hero â”€â”€ */
 .grid-overlay {
     animation: gridPulse 8s ease-in-out infinite;
 }
@@ -2556,19 +2571,19 @@ ul {
     }
 }
 
-/* ── 23. Nav logo – hover lift ── */
+/* â”€â”€ 23. Nav logo â€“ hover lift â”€â”€ */
 .nav-logo:hover .logo-icon {
     transform: scale(1.15) rotate(-8deg);
     transition: transform 0.4s var(--ease-spring);
     display: inline-block;
 }
 
-/* ── 24. Section entrance with depth ── */
+/* â”€â”€ 24. Section entrance with depth â”€â”€ */
 .section-header {
     transform-origin: center top;
 }
 
-/* ── 25. Product card glossy top edge ── */
+/* â”€â”€ 25. Product card glossy top edge â”€â”€ */
 .product-card::before {
     content: '';
     position: absolute;
@@ -2587,7 +2602,7 @@ ul {
     transform: scaleX(1);
 }
 
-/* ── 26. Vision icon – 3D spin on hover ── */
+/* â”€â”€ 26. Vision icon â€“ 3D spin on hover â”€â”€ */
 .vision-icon {
     transition: transform 0.5s var(--ease-spring) !important;
 }
@@ -2596,7 +2611,7 @@ ul {
     transform: perspective(300px) rotateY(15deg) scale(1.1);
 }
 
-/* ── 27. Light theme body – subtle grid ── */
+/* â”€â”€ 27. Light theme body â€“ subtle grid â”€â”€ */
 [data-theme="light"] body {
     background-image:
         radial-gradient(ellipse 80% 60% at 20% 0%, rgba(91, 33, 182, 0.06) 0%, transparent 60%),
@@ -2604,19 +2619,19 @@ ul {
     background-attachment: fixed;
 }
 
-/* ── 28. Carousel nav 3D rotation hint ── */
+/* â”€â”€ 28. Carousel nav 3D rotation hint â”€â”€ */
 .carousel-nav:hover {
     transform: translateY(-50%) scale(1.15) !important;
     transition: all 0.3s var(--ease-spring) !important;
 }
 
-/* ── 29. Feature icon 3D spin on card hover ── */
+/* â”€â”€ 29. Feature icon 3D spin on card hover â”€â”€ */
 .feature-card:hover .feature-icon {
     transform: rotateY(360deg);
     transition: transform 0.7s var(--ease-out);
 }
 
-/* ── 30. Smooth color transitions everywhere ── */
+/* â”€â”€ 30. Smooth color transitions everywhere â”€â”€ */
 *,
 *::before,
 *::after {
@@ -2637,10 +2652,10 @@ ul {
 }
 
 /* ===========================================================
-   ✦ ULTRA IMMERSIVE 3D — MAXIMUM DEPTH SYSTEM (ARCTIC)
+   âœ¦ ULTRA IMMERSIVE 3D â€” MAXIMUM DEPTH SYSTEM (ARCTIC)
    =========================================================== */
 
-/* ── 3D Text Extrusion for Headers ── */
+/* â”€â”€ 3D Text Extrusion for Headers â”€â”€ */
 .hero-title,
 .section-header h2 {
     text-shadow:
@@ -2666,7 +2681,7 @@ ul {
         0 10px 20px rgba(15, 23, 42, 0.1);
 }
 
-/* ── Canvas particle field ── */
+/* â”€â”€ Canvas particle field â”€â”€ */
 .hero-canvas {
     position: absolute;
     inset: 0;
@@ -2677,7 +2692,7 @@ ul {
     opacity: 0.85;
 }
 
-/* ── Depth fog at bottom of hero ── */
+/* â”€â”€ Depth fog at bottom of hero â”€â”€ */
 .hero-fog-bottom {
     position: absolute;
     bottom: 0;
@@ -2689,7 +2704,7 @@ ul {
     z-index: 2;
 }
 
-/* ── Extreme depth on hero carousel ── */
+/* â”€â”€ Extreme depth on hero carousel â”€â”€ */
 .hero-carousel {
     transform-style: preserve-3d;
     box-shadow:
@@ -2707,7 +2722,7 @@ ul {
         inset 0 1px 0 rgba(255, 255, 255, 1) !important;
 }
 
-/* ── Arctic Light theme element overrides ── */
+/* â”€â”€ Arctic Light theme element overrides â”€â”€ */
 [data-theme="light"] .slide-visual-bg {
     background: linear-gradient(135deg, rgba(226, 232, 240, 0.8), rgba(203, 213, 225, 0.5)) !important;
     border: 1px solid rgba(59, 130, 246, 0.15) !important;
@@ -2733,18 +2748,18 @@ ul {
     background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.3), transparent) !important;
 }
 
-/* ── Ultra 3D card perspective ── */
+/* â”€â”€ Ultra 3D card perspective â”€â”€ */
 .feature-card,
 .product-card {
     transform-style: preserve-3d;
 }
 
-/* ── 3D Depth Scale on section entries ── */
+/* â”€â”€ 3D Depth Scale on section entries â”€â”€ */
 .section-header {
     transform-style: preserve-3d;
 }
 
-/* ── Mega depth hero glow pulse ── */
+/* â”€â”€ Mega depth hero glow pulse â”€â”€ */
 .hero-orb-1 {
     animation: orbFloat 18s ease-in-out infinite, orbPulse 10s ease-in-out infinite;
 }
@@ -2769,7 +2784,7 @@ ul {
     }
 }
 
-/* ── Grid overlay animated ── */
+/* â”€â”€ Grid overlay animated â”€â”€ */
 .grid-overlay {
     animation: gridPulse 8s ease-in-out infinite !important;
     opacity: 0.15;
@@ -2789,7 +2804,7 @@ ul {
     }
 }
 
-/* ── Cursor Glow Layer ── */
+/* â”€â”€ Cursor Glow Layer â”€â”€ */
 #cursor-glow {
     position: fixed;
     width: 600px;
@@ -2805,7 +2820,7 @@ ul {
     background: radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, transparent 70%);
 }
 
-/* ====== LOGO — Always White ====== */
+/* ====== LOGO â€” Always White ====== */
 .logo-text-white {
     font-family: var(--font-display);
     font-size: 1.4rem;
@@ -2821,7 +2836,7 @@ ul {
     -webkit-text-fill-color: transparent;
 }
 
-/* ====== HERO TITLES — White in dark, Dark in light ====== */
+/* ====== HERO TITLES â€” White in dark, Dark in light ====== */
 .hero-title {
     color: #ffffff;
 }
@@ -2979,4 +2994,39 @@ ul {
 .whatsapp-float:hover .wa-label {
     opacity: 1;
     transform: translateY(-50%) translateX(0);
+}
+
+/* ====== SCROLL TO TOP ====== */
+.scroll-to-top {
+    position: fixed;
+    bottom: 90px;
+    right: 24px;
+    width: 48px;
+    height: 48px;
+    background: var(--gradient-main);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 999;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(20px);
+    transition: all 0.3s var(--ease-spring);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.scroll-to-top.visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.scroll-to-top:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(99, 102, 241, 0.6);
 }

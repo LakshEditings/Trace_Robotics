@@ -1,5 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/effect-coverflow';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import { EffectCoverflow, Pagination, Navigation, Autoplay } from 'swiper/modules';
 
 const Home = () => {
     return (
@@ -20,9 +26,42 @@ const Home = () => {
                 <div className="hero-container">
                     <div className="hero-carousel">
                         <button className="carousel-nav prev-slide" aria-label="Previous Slide">❮</button>
-                        <div className="hero-slider">
+                        <Swiper
+                            effect={'coverflow'}
+                            grabCursor={true}
+                            centeredSlides={true}
+                            slidesPerView={'auto'}
+                            loop={true}
+                            autoplay={{
+                                delay: 5000,
+                                disableOnInteraction: false,
+                            }}
+                            coverflowEffect={{
+                                rotate: 20,
+                                stretch: 0,
+                                depth: 150,
+                                modifier: 1,
+                                slideShadows: false,
+                            }}
+                            pagination={{
+                                el: '.slider-dots',
+                                clickable: true,
+                                bulletClass: 'dot',
+                                bulletActiveClass: 'active',
+                            }}
+                            navigation={{
+                                nextEl: '.next-slide',
+                                prevEl: '.prev-slide',
+                            }}
+                            modules={[EffectCoverflow, Pagination, Navigation, Autoplay]}
+                            className="hero-slider"
+                            style={{ 
+                                padding: '50px 0', 
+                                perspective: '1200px'
+                            }}
+                        >
                             {/* Slide 1: Cobot Video */}
-                            <div className="slide active slide-video">
+                            <SwiperSlide className="slide slide-video" style={{ width: '70%' }}>
                                 <div className="slide-video-bg">
                                     <video src="/images/cobot.mp4" autoPlay muted loop playsInline
                                         className="slide-bg-video"></video>
@@ -38,10 +77,10 @@ const Home = () => {
                                             style={{background:'linear-gradient(135deg,#f59e0b,#ef4444)'}}>View Solutions</Link>
                                     </div>
                                 </div>
-                            </div>
+                            </SwiperSlide>
 
                             {/* Slide 2: Human-Robot Collaboration */}
-                            <div className="slide slide-video">
+                            <SwiperSlide className="slide slide-video" style={{ width: '70%' }}>
                                 <div className="slide-video-bg">
                                     <video src="/images/QuantumRobot_2mins.mp4" autoPlay muted loop playsInline
                                         className="slide-bg-video"></video>
@@ -57,15 +96,50 @@ const Home = () => {
                                             style={{background:'linear-gradient(135deg,#10b981,#06b6d4)'}}>Learn More</Link>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
+                            </SwiperSlide>
+                            
+                            {/* Slide 3: Duplicate for Coverflow Depth */}
+                            <SwiperSlide className="slide slide-video" style={{ width: '70%' }}>
+                                <div className="slide-video-bg">
+                                    <video src="/images/cobot.mp4" autoPlay muted loop playsInline
+                                        className="slide-bg-video"></video>
+                                    <div className="slide-video-overlay"></div>
+                                </div>
+                                <div className="slide-content slide-content-video">
+                                    <div className="hero-badge" style={{color:'#f59e0b', borderColor:'rgba(245,158,11,0.4)'}}>
+                                        Collaborative Robot</div>
+                                    <h2 className="hero-title slide-title-forced">Intelligent Cobot Solutions</h2>
+                                    <p className="hero-description">Precise, adaptable, and built for modern industry.</p>
+                                    <div className="hero-actions">
+                                        <Link to="/solutions" className="btn btn-primary"
+                                            style={{background:'linear-gradient(135deg,#f59e0b,#ef4444)'}}>View Solutions</Link>
+                                    </div>
+                                </div>
+                            </SwiperSlide>
+
+                            {/* Slide 4: Duplicate for Coverflow Depth */}
+                            <SwiperSlide className="slide slide-video" style={{ width: '70%' }}>
+                                <div className="slide-video-bg">
+                                    <video src="/images/QuantumRobot_2mins.mp4" autoPlay muted loop playsInline
+                                        className="slide-bg-video"></video>
+                                    <div className="slide-video-overlay"></div>
+                                </div>
+                                <div className="slide-content slide-content-video">
+                                    <div className="hero-badge" style={{color:'#10b981', borderColor:'rgba(16,185,129,0.4)'}}>
+                                        Future of Tech</div>
+                                    <h2 className="hero-title slide-title-forced">Human-Robot Collaboration</h2>
+                                    <p className="hero-description">Robotic precision for the factory of tomorrow.</p>
+                                    <div className="hero-actions">
+                                        <Link to="/solutions" className="btn btn-primary"
+                                            style={{background:'linear-gradient(135deg,#10b981,#06b6d4)'}}>Learn More</Link>
+                                    </div>
+                                </div>
+                            </SwiperSlide>
+                        </Swiper>
                         <button className="carousel-nav next-slide" aria-label="Next Slide">❯</button>
 
                         {/* Navigation Dots */}
-                        <div className="slider-dots">
-                            <span className="dot active" data-index="0"></span>
-                            <span className="dot" data-index="1"></span>
-                        </div>
+                        <div className="slider-dots"></div>
                     </div>
                 </div>
             </section>

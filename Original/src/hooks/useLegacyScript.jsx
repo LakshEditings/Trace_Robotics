@@ -353,7 +353,6 @@ export const useLegacyScript = () => {
         // Initializations
         const observer1 = initScrollAnimations();
         const observer2 = animateCounters();
-        initSlider();
         initTheme();
         const scrollNavbar = initNavbar();
         initTiltCards();
