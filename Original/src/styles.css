@@ -55,10 +55,10 @@
     --bg-secondary: #f8fafc;
     --bg-tertiary: #f1f5f9;
     --bg-card: #ffffff;
-    --bg-card-hover: #f8fafc;
-    --bg-glass: rgba(37, 99, 235, 0.04);
-    --bg-glass-border: rgba(37, 99, 235, 0.12);
-    --text-primary: #0f172a;
+    --bg-card-hover: #f1f5f9;
+    --bg-glass: rgba(30, 58, 138, 0.04);
+    --bg-glass-border: rgba(30, 58, 138, 0.12);
+    --text-primary: #1e3a8a; /* Dark Blue */
     --text-secondary: #334155;
     --text-muted: #64748b;
     --accent-1: #1d4ed8;
@@ -66,15 +66,16 @@
     --accent-3: #1e40af;
     --gradient-main: linear-gradient(135deg, #1d4ed8, #2563eb, #3b82f6);
     --gradient-subtle: linear-gradient(135deg, rgba(29, 78, 216, .08), rgba(37, 99, 235, .08));
-    --border-color: rgba(15, 23, 42, 0.1);
+    --border-color: rgba(30, 58, 138, 0.1);
     --shadow-sm: 0 2px 10px rgba(15, 23, 42, .06);
     --shadow-md: 0 10px 30px rgba(15, 23, 42, .1);
     --shadow-lg: 0 30px 60px rgba(15, 23, 42, .14);
-    --shadow-glow: 0 0 60px rgba(37, 99, 235, .15);
+    --shadow-glow: 0 0 60px rgba(30, 58, 138, 0.1);
 }
 
 html {
     scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -209,10 +210,21 @@ ul {
 }
 
 [data-theme="light"] .navbar {
-    background: rgba(219, 234, 254, 0.92);
-    border-bottom: 1px solid rgba(29, 78, 216, 0.15);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    background: rgba(30, 58, 138, 0.97) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+[data-theme="light"] .logo-text,
+[data-theme="light"] .nav-link,
+[data-theme="light"] .theme-toggle {
+    color: #ffffff !important;
+}
+
+[data-theme="light"] .nav-link:hover,
+[data-theme="light"] .nav-link.active {
+    background: rgba(255, 255, 255, 0.1);
 }
 
 .navbar.scrolled {
@@ -223,9 +235,9 @@ ul {
 }
 
 [data-theme="light"] .navbar.scrolled {
-    background: rgba(255, 255, 255, 0.96);
-    border-bottom: 1px solid rgba(15, 23, 42, 0.1);
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+    background: #162a6b;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
 }
 
 
@@ -475,12 +487,13 @@ ul {
 /* ====== HERO ====== */
 .hero {
     position: relative;
-    min-height: 800px;
+    min-height: 100vh;
     display: flex;
     align-items: center;
-    padding: 120px 0 80px;
+    padding: 100px 0 20px;
     overflow: hidden;
     background: var(--bg-primary);
+    scroll-snap-align: start;
 }
 
 .hero-bg-effects {
@@ -699,38 +712,122 @@ ul {
     background: var(--border-color);
 }
 
-/* Hero Carousel */
+/* Hero Carousel — Basic Full-Screen Slides */
 .hero-carousel {
     position: relative;
     width: 100%;
-    max-width: 1300px;
+    max-width: 1280px;
     margin: 0 auto;
-    background: rgba(20, 20, 30, 0.4);
-    border: 1px solid rgba(255, 255, 255, 0.05);
     border-radius: var(--radius-xl);
     overflow: hidden;
-    padding: 0;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(10px);
-    display: flex;
-    align-items: stretch;
     height: 520px;
-    transition: height 0.3s ease;
-}
-
-@media (max-width: 768px) {
-    .hero-carousel {
-        height: 300px;
-    }
 }
 
 [data-theme="light"] .hero-carousel {
-    background: linear-gradient(145deg, rgba(240, 237, 249, 0.9), rgba(230, 222, 252, 0.7));
-    border: 1px solid rgba(5, 150, 105, 0.12);
-    box-shadow:
-        0 4px 24px rgba(5, 150, 105, 0.08),
-        0 20px 60px rgba(5, 150, 105, 0.1);
+    border: 1px solid rgba(30, 58, 138, 0.1);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
 }
+
+/* Basic Slide */
+.basic-slide {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.basic-slide-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.basic-slide-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.2) 50%, transparent 100%);
+    z-index: 1;
+}
+
+[data-theme="light"] .basic-slide-overlay {
+    background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.1) 50%, transparent 100%);
+}
+
+.basic-slide-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 40px 60px;
+    z-index: 2;
+    color: #ffffff;
+}
+
+.basic-slide-content .hero-badge {
+    margin-bottom: 12px;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(8px);
+    border-radius: 50px;
+}
+
+.basic-slide-content .hero-title {
+    color: #ffffff;
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    margin-bottom: 12px;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+.basic-slide-content .hero-description {
+    color: rgba(255,255,255,0.85);
+    max-width: 500px;
+    margin-bottom: 20px;
+    font-size: 1rem;
+}
+
+.basic-slide-content .hero-actions {
+    margin-bottom: 0;
+}
+
+/* Swiper nav arrows */
+.hero-carousel .swiper-button-next,
+.hero-carousel .swiper-button-prev {
+    color: #ffffff;
+    background: rgba(0,0,0,0.35);
+    backdrop-filter: blur(6px);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    transition: background 0.3s;
+}
+
+.hero-carousel .swiper-button-next::after,
+.hero-carousel .swiper-button-prev::after {
+    font-size: 16px;
+    font-weight: 800;
+}
+
+.hero-carousel .swiper-button-next:hover,
+.hero-carousel .swiper-button-prev:hover {
+    background: rgba(30,58,138,0.7);
+}
+
+.hero-carousel .swiper-pagination-bullet {
+    background: rgba(255,255,255,0.5);
+    opacity: 1;
+}
+
+.hero-carousel .swiper-pagination-bullet-active {
+    background: #ffffff;
+    transform: scale(1.3);
+}
+
+.hero-slider {
+    width: 100%;
+    height: 100%;
+}
+
 
 .slide-visual-bg {
     background: rgba(15, 15, 40, 0.6);
@@ -1811,4 +1908,23 @@ ul {
 
 .whatsapp-float {
     z-index: 99999;
+}
+
+/* ====== SNAP SECTION ====== */
+.snap-section {
+    scroll-snap-align: start;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .snap-section {
+        min-height: auto;
+        display: block;
+        scroll-snap-align: none;
+    }
 }

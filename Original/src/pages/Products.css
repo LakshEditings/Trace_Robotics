@@ -1,7 +1,7 @@
 /* ── Products Page Specific ── */
 .products-hero {
     position: relative;
-    padding: 160px 0 80px;
+    padding: 100px 0 40px;
     text-align: center;
     overflow: hidden;
     background: var(--bg-primary);

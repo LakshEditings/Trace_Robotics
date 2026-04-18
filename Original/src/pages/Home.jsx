@@ -6,11 +6,41 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { Pagination, Navigation, Autoplay } from 'swiper/modules';
 
+const slides = [
+    {
+        video: '/images/AMR_Video.mp4',
+        badge: 'Logistics Automation',
+        title: 'Autonomous Mobile Robots',
+        description: 'Next-generation AMR fleet for smart material handling and logistics.',
+        link: '/products',
+        linkLabel: 'Explore AMRs',
+        accentColor: '#6366f1',
+    },
+    {
+        video: '/images/cobot.mp4',
+        badge: 'Collaborative Robot',
+        title: 'Intelligent Cobot Solutions',
+        description: 'Precise, adaptable, and built for modern manufacturing integration.',
+        link: '/solutions',
+        linkLabel: 'View Solutions',
+        accentColor: '#f59e0b',
+    },
+    {
+        video: '/images/QuantumRobot_2mins.mp4',
+        badge: 'Future of Tech',
+        title: 'The Future of Work',
+        description: 'Leading the transformation of industrial processes with robotic precision.',
+        link: '/solutions',
+        linkLabel: 'Learn More',
+        accentColor: '#10b981',
+    },
+];
+
 const Home = () => {
     return (
         <>
             {/* ====== HERO ====== */}
-            <section id="home" className="hero">
+            <section id="home" className="hero snap-section">
                 {/* 3D Particle Canvas */}
                 <canvas id="heroCanvas" className="hero-canvas"></canvas>
                 {/* Depth fog layer */}
@@ -24,116 +54,45 @@ const Home = () => {
 
                 <div className="hero-container">
                     <div className="hero-carousel">
-                        <button className="carousel-nav prev-slide" aria-label="Previous Slide">❮</button>
                         <Swiper
                             grabCursor={true}
-                            centeredSlides={true}
                             slidesPerView={1}
                             loop={true}
-                            autoplay={{
-                                delay: 5000,
-                                disableOnInteraction: false,
-                            }}
-                            pagination={{
-                                el: '.slider-dots',
-                                clickable: true,
-                                bulletClass: 'dot',
-                                bulletActiveClass: 'active',
-                            }}
-                            navigation={{
-                                nextEl: '.next-slide',
-                                prevEl: '.prev-slide',
-                            }}
+                            autoplay={{ delay: 5000, disableOnInteraction: false }}
+                            pagination={{ clickable: true }}
+                            navigation={true}
                             modules={[Pagination, Navigation, Autoplay]}
                             className="hero-slider"
-                            style={{ width: '100%' }}
                         >
-                            {/* Slide 1: Cobot Video */}
-                            <SwiperSlide className="slide slide-video">
-                                <div className="slide-video-bg">
-                                    <video src="/images/cobot.mp4" autoPlay muted loop playsInline
-                                        className="slide-bg-video"></video>
-                                    <div className="slide-video-overlay"></div>
-                                </div>
-                                <div className="slide-content slide-content-video">
-                                    <div className="hero-badge" style={{color:'#f59e0b', borderColor:'rgba(245,158,11,0.4)'}}>
-                                        Collaborative Robot</div>
-                                    <h2 className="hero-title slide-title-forced">Intelligent Cobot Solutions</h2>
-                                    <p className="hero-description">Precise, adaptable, and built for modern industry.</p>
-                                    <div className="hero-actions">
-                                        <Link to="/solutions" className="btn btn-primary"
-                                            style={{background:'linear-gradient(135deg,#f59e0b,#ef4444)'}}>View Solutions</Link>
+                            {slides.map((slide, i) => (
+                                <SwiperSlide key={i} className="basic-slide">
+                                    <video
+                                        src={slide.video}
+                                        autoPlay muted loop playsInline
+                                        className="basic-slide-video"
+                                    />
+                                    <div className="basic-slide-overlay" />
+                                    <div className="basic-slide-content">
+                                        <span className="hero-badge" style={{ color: slide.accentColor, borderColor: `${slide.accentColor}66` }}>
+                                            {slide.badge}
+                                        </span>
+                                        <h2 className="hero-title">{slide.title}</h2>
+                                        <p className="hero-description">{slide.description}</p>
+                                        <div className="hero-actions">
+                                            <Link to={slide.link} className="btn btn-primary">
+                                                {slide.linkLabel}
+                                            </Link>
+                                        </div>
                                     </div>
-                                </div>
-                            </SwiperSlide>
-
-                            {/* Slide 2: Human-Robot Collaboration */}
-                            <SwiperSlide className="slide slide-video" >
-                                <div className="slide-video-bg">
-                                    <video src="/images/QuantumRobot_2mins.mp4" autoPlay muted loop playsInline
-                                        className="slide-bg-video"></video>
-                                    <div className="slide-video-overlay"></div>
-                                </div>
-                                <div className="slide-content slide-content-video">
-                                    <div className="hero-badge" style={{color:'#10b981', borderColor:'rgba(16,185,129,0.4)'}}>
-                                        Future of Tech</div>
-                                    <h2 className="hero-title slide-title-forced">Human-Robot Collaboration</h2>
-                                    <p className="hero-description">Robotic precision for the factory of tomorrow.</p>
-                                    <div className="hero-actions">
-                                        <Link to="/solutions" className="btn btn-primary"
-                                            style={{background:'linear-gradient(135deg,#10b981,#06b6d4)'}}>Learn More</Link>
-                                    </div>
-                                </div>
-                            </SwiperSlide>
-                            
-                            {/* Slide 3: Duplicate for Coverflow Depth */}
-                            <SwiperSlide className="slide slide-video" >
-                                <div className="slide-video-bg">
-                                    <video src="/images/cobot.mp4" autoPlay muted loop playsInline
-                                        className="slide-bg-video"></video>
-                                    <div className="slide-video-overlay"></div>
-                                </div>
-                                <div className="slide-content slide-content-video">
-                                    <div className="hero-badge" style={{color:'#f59e0b', borderColor:'rgba(245,158,11,0.4)'}}>
-                                        Collaborative Robot</div>
-                                    <h2 className="hero-title slide-title-forced">Intelligent Cobot Solutions</h2>
-                                    <p className="hero-description">Precise, adaptable, and built for modern industry.</p>
-                                    <div className="hero-actions">
-                                        <Link to="/solutions" className="btn btn-primary"
-                                            style={{background:'linear-gradient(135deg,#f59e0b,#ef4444)'}}>View Solutions</Link>
-                                    </div>
-                                </div>
-                            </SwiperSlide>
-
-                            {/* Slide 4: AMR Video */}
-                            <SwiperSlide className="slide slide-video" >
-                                <div className="slide-video-bg">
-                                    <video src="/images/AMR_Video.mp4" autoPlay muted loop playsInline
-                                        className="slide-bg-video"></video>
-                                    <div className="slide-video-overlay"></div>
-                                </div>
-                                <div className="slide-content slide-content-video">
-                                    <div className="hero-badge" style={{color:'#a855f7', borderColor:'rgba(168,85,247,0.4)'}}>
-                                        Logistics Automation</div>
-                                    <h2 className="hero-title slide-title-forced">Autonomous Mobile Robots</h2>
-                                    <p className="hero-description">Next-generation AMR fleet for smart material handling.</p>
-                                    <div className="hero-actions">
-                                        <Link to="/solutions" className="btn btn-primary"
-                                            style={{background:'linear-gradient(135deg,#a855f7,#ec4899)'}}>Explore AMRs</Link>
-                                    </div>
-                                </div>
-                            </SwiperSlide>
+                                </SwiperSlide>
+                            ))}
                         </Swiper>
-                        <button className="carousel-nav next-slide" aria-label="Next Slide">❯</button>
-
-                        {/* Navigation Dots */}
-                        <div className="slider-dots"></div>
                     </div>
                 </div>
             </section>
 
             {/* ====== ABOUT SECTION ====== */}
-            <section id="about" className="about-section">
+            <section id="about" className="about-section snap-section">
                 <div className="container">
                     <div className="section-header">
                         <span className="section-tag">About Us</span>
@@ -165,66 +124,49 @@ const Home = () => {
                         </div>
 
                         <div className="feature-card">
-                            <h3>Collaborative Robot Solutions</h3>
-                            <p>Safe and flexible human-robot collaboration for modern industries.</p>
+                            <h3>AMR Development</h3>
+                            <p>Custom Autonomous Mobile Robots engineered for your facility layout.</p>
                         </div>
 
                         <div className="feature-card">
-                            <h3>PLC, HMI, and Control Systems</h3>
-                            <p>Advanced automation using PLC programming, HMI interfaces, and control systems.</p>
+                            <h3>Smart Automation</h3>
+                            <p>End-to-end automation strategy, design and deployment.</p>
                         </div>
 
                         <div className="feature-card">
-                            <h3>Vision-Based Inspection Systems</h3>
-                            <p>High-precision quality inspection using machine vision and AI.</p>
-                        </div>
-
-                        <div className="feature-card">
-                            <h3>End-of-Line Automation & Material Handling</h3>
-                            <p>Automation solutions for packaging, sorting, and material movement.</p>
-                        </div>
-
-                        <div className="feature-card">
-                            <h3>Smart Manufacturing & Industry 4.0</h3>
-                            <p>Digital transformation with IoT, data analytics, and smart factory solutions.</p>
+                            <h3>AI & Vision Systems</h3>
+                            <p>Machine learning and computer vision embedded into production lines.</p>
                         </div>
                     </div>
 
-                    {/* Vision Statement */}
                     <div className="about-vision">
-                        <div className="vision-icon">
-                            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                strokeWidth="1.5">
-                                <circle cx="12" cy="12" r="10" />
-                                <path d="M12 8v4l3 3" />
-                            </svg>
-                        </div>
-                        <div className="vision-text">
-                            <h3>Our Vision</h3>
-                            <p>Build <strong>indigenous robotics products and
-                                    automation platforms</strong> that are affordable, effective, and designed for
-                                real-world
-                                industrial use — making advanced automation accessible to Indian manufacturing at scale.</p>
-                        </div>
+                        <div className="vision-icon">⚡</div>
+                        <p>
+                            <strong>Our Vision:</strong> To become the most trusted automation partner for manufacturing
+                            industries in India and beyond — enabling smarter factories, safer workplaces, and more
+                            efficient operations.
+                        </p>
                     </div>
-
                 </div>
             </section>
 
             {/* ====== INDUSTRY SECTION ====== */}
-            <section id="industry" className="section section-dark">
+            <section id="industry" className="section section-dark snap-section">
                 <div className="container">
                     <div className="split-section">
                         <div className="split-image" data-aos="fade-right">
                             <div className="image-frame">
-                                <video src="/images/cobot.mp4" autoPlay muted loop playsInline
-                                    style={{width:'100%',height:'100%',objectFit:'cover',borderRadius:'inherit'}}
-                                    aria-label="Collaborative Robot Solutions by Trace Robotics"></video>
+                                <video
+                                    src="/images/AMR_Video.mp4"
+                                    autoPlay muted loop playsInline
+                                    style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: 'inherit' }}
+                                    aria-label="AMR in industrial environment"
+                                ></video>
                                 <div className="image-overlay"></div>
                             </div>
                         </div>
                         <div className="split-content" data-aos="fade-left">
-                            <span className="section-tag">Industry</span>
+                            <span className="section-tag">Industry Focus</span>
                             <h2 className="section-title">Autonomous Solutions for <span className="gradient-text">Smart
                                     Factories</span></h2>
                             <div className="content-list">
@@ -242,9 +184,7 @@ const Home = () => {
                                     </div>
                                     <div className="item-text">
                                         <h4>Autonomous Mobile Robots (AMR)</h4>
-                                        <p>Intelligent material handling and internal logistics automation with our
-                                            cutting-edge
-                                            AMR fleet.</p>
+                                        <p>Intelligent material handling and logistics automation with our AMR fleet.</p>
                                     </div>
                                 </div>
                                 <div className="content-item">
@@ -255,8 +195,7 @@ const Home = () => {
                                     </div>
                                     <div className="item-text">
                                         <h4>Custom Industrial Automation</h4>
-                                        <p>We develop tailored automation solutions to improve productivity, efficiency, and
-                                            safety across your operations.</p>
+                                        <p>Tailored automation to improve productivity, efficiency, and safety.</p>
                                     </div>
                                 </div>
                                 <div className="content-item">
@@ -267,8 +206,7 @@ const Home = () => {
                                     </div>
                                     <div className="item-text">
                                         <h4>AI & Sensor Integration</h4>
-                                        <p>Our solutions integrate robotics, sensors, and AI technologies to optimize
-                                            manufacturing and warehouse operations.</p>
+                                        <p>Robotics, sensors, and AI to optimize manufacturing operations.</p>
                                     </div>
                                 </div>
                                 <div className="content-item">
@@ -279,15 +217,13 @@ const Home = () => {
                                     </div>
                                     <div className="item-text">
                                         <h4>Smart Factory Deployment</h4>
-                                        <p>End-to-end design, development, and deployment of advanced robotic systems for
-                                            smart
-                                            factories.</p>
+                                        <p>End-to-end design, development and deployment of robotic systems.</p>
                                     </div>
                                 </div>
                             </div>
-                            <Link to="/#contact" className="btn btn-primary btn-sm">
-                                Learn More
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <Link to="/solutions" className="btn btn-primary btn-sm" style={{ marginTop: '30px' }}>
+                                View All Solutions
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style={{ marginLeft: '8px' }}>
                                     <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="2"
                                         strokeLinecap="round" strokeLinejoin="round" />
                                 </svg>
@@ -298,149 +234,119 @@ const Home = () => {
             </section>
 
             {/* ====== PRODUCTS SECTION ====== */}
-            <section id="products" className="section">
+            <section id="products" className="section snap-section">
                 <div className="container">
                     <div className="split-section">
 
-                        {/* Image */}
-                        <div className="split-image" data-aos="fade-left">
-                            <div className="image-frame">
-                                <video src="images/cobot.mp4" autoPlay muted loop playsInline
-                                    style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: 'inherit' }}>
-                                </video>
-                                <div className="image-overlay"></div>
-                            </div>
-                        </div>
-
-                        {/* Content */}
-                        <div className="split-content" data-aos="fade-right">
-                            <span className="section-tag">Products</span>
-                            <h2 className="section-title">
-                                Our Flagship <span className="gradient-text">Hardware</span>
-                            </h2>
-
+                        <div className="split-content" style={{ order: 1 }} data-aos="fade-right">
+                            <span className="section-tag">Our Products</span>
+                            <h2 className="section-title">Flagship <span className="gradient-text">Robotics</span>
+                                Hardware</h2>
+                            <p className="split-desc">Precision-engineered products built for real industry and real
+                                learning.</p>
                             <div className="content-list">
-
                                 <div className="content-item">
                                     <div className="item-icon">
                                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                            <circle cx="10" cy="10" r="4" fill="url(#grad1)" />
+                                            <circle cx="10" cy="10" r="4" fill="url(#gradProd)" />
+                                            <defs>
+                                                <linearGradient id="gradProd" x1="0" y1="0" x2="20" y2="20">
+                                                    <stop stopColor="#3b82f6" />
+                                                    <stop offset="1" stopColor="#06b6d4" />
+                                                </linearGradient>
+                                            </defs>
                                         </svg>
                                     </div>
                                     <div className="item-text">
-                                        <h4>Trace AMR</h4>
-                                        <p>Autonomous mobile robot for smart material handling and logistics automation.</p>
+                                        <h4>Trace Lite</h4>
+                                        <p>Compact, versatile AMR platform for research, rapid mapping and indoor
+                                            logistics.</p>
                                     </div>
                                 </div>
-
-                                <div className="content-item">
-                                    <div className="item-icon">
-                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                            <circle cx="10" cy="10" r="4" fill="url(#grad1)" />
-                                        </svg>
-                                    </div>
-                                    <div className="item-text">
-                                        <h4>AMR Control System</h4>
-                                        <p>Advanced navigation, SLAM, and control systems for industrial deployment.</p>
-                                    </div>
-                                </div>
-
-                                <div className="content-item">
-                                    <div className="item-icon">
-                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                            <circle cx="10" cy="10" r="4" fill="url(#grad1)" />
-                                        </svg>
-                                    </div>
-                                    <div className="item-text">
-                                        <h4>Custom Robotics Platforms</h4>
-                                        <p>Modular robotic platforms tailored for industrial and research applications.</p>
-                                    </div>
-                                </div>
-
                             </div>
-
-                            <Link to="/products" className="btn btn-primary btn-sm">
-                                Explore Products
+                            <Link to="/products" className="btn btn-primary btn-sm" style={{ marginTop: '30px' }}>
+                                See Products
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style={{ marginLeft: '8px' }}>
+                                    <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="2"
+                                        strokeLinecap="round" strokeLinejoin="round" />
+                                </svg>
                             </Link>
                         </div>
 
+                        <div className="split-image" style={{ order: 2 }} data-aos="fade-left">
+                            <div className="image-frame">
+                                <img
+                                    src="/images/Screenshot 2026-04-04 185735.png"
+                                    alt="Trace Lite AMR"
+                                    style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: 'inherit' }}
+                                />
+                                <div className="image-overlay"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
 
             {/* ====== SUPPORT SECTION ====== */}
-            <section id="support" className="section section-dark">
+            <section id="support" className="section section-dark snap-section">
                 <div className="container">
                     <div className="split-section">
                         <div className="split-image" data-aos="fade-right">
                             <div className="image-frame">
-                                <img src="/images/support-workshop.png"
-                                    alt="Robotics Workshops and Training by Trace Robotics" />
+                                <video src="/images/cobot.mp4" autoPlay muted loop playsInline
+                                    style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: 'inherit' }}
+                                    aria-label="Workshops and training by Trace Robotics"></video>
                                 <div className="image-overlay"></div>
                             </div>
                         </div>
                         <div className="split-content" data-aos="fade-left">
-                            <span className="section-tag">Support & Training</span>
+                            <span className="section-tag">Support & Education</span>
                             <h2 className="section-title">Workshops & Courses for <span className="gradient-text">STEM
-                                    Excellence</span>
-                            </h2>
+                                    Excellence</span></h2>
                             <div className="content-list">
                                 <div className="content-item">
                                     <div className="item-icon">
                                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                            <circle cx="10" cy="10" r="4" fill="url(#grad1)" />
+                                            <circle cx="10" cy="10" r="4" fill="url(#gradSupHome)" />
+                                            <defs>
+                                                <linearGradient id="gradSupHome" x1="0" y1="0" x2="20" y2="20">
+                                                    <stop stopColor="#6366f1" />
+                                                    <stop offset="1" stopColor="#a855f7" />
+                                                </linearGradient>
+                                            </defs>
                                         </svg>
                                     </div>
                                     <div className="item-text">
                                         <h4>Robotics Workshops</h4>
-                                        <p>Hands-on robotics workshops for school and college students to develop practical
-                                            STEM
-                                            skills.</p>
+                                        <p>Hands-on workshops delivering robotics education to schools and colleges.</p>
                                     </div>
                                 </div>
                                 <div className="content-item">
                                     <div className="item-icon">
                                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                            <circle cx="10" cy="10" r="4" fill="url(#grad1)" />
+                                            <circle cx="10" cy="10" r="4" fill="url(#gradSupHome)" />
                                         </svg>
                                     </div>
                                     <div className="item-text">
-                                        <h4>Robotics & AI Courses</h4>
-                                        <p>Online courses to help students learn design, programming, and robot development
-                                            with
-                                            real-world applications.</p>
+                                        <h4>AI & Robotics Courses</h4>
+                                        <p>Structured modules from embedded programming to AI-driven vision systems.</p>
                                     </div>
                                 </div>
                                 <div className="content-item">
                                     <div className="item-icon">
                                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                            <circle cx="10" cy="10" r="4" fill="url(#grad1)" />
+                                            <circle cx="10" cy="10" r="4" fill="url(#gradSupHome)" />
                                         </svg>
                                     </div>
                                     <div className="item-text">
                                         <h4>Electronics Training</h4>
-                                        <p>Comprehensive electronics training courses covering circuit design, embedded
-                                            systems,
-                                            and PCB design.</p>
-                                    </div>
-                                </div>
-                                <div className="content-item">
-                                    <div className="item-icon">
-                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                            <circle cx="10" cy="10" r="4" fill="url(#grad1)" />
-                                        </svg>
-                                    </div>
-                                    <div className="item-text">
-                                        <h4>Programming Courses</h4>
-                                        <p>Build strong foundations in coding for robotics and technology — from Python and
-                                            C++
-                                            to ROS.</p>
+                                        <p>Circuit design, PCB fabrication and microcontroller firmware training.</p>
                                     </div>
                                 </div>
                             </div>
-                            <Link to="/#contact" className="btn btn-primary btn-sm">
-                                Explore Courses
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                            <Link to="/support" className="btn btn-primary btn-sm" style={{ marginTop: '30px' }}>
+                                Explore Training
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style={{ marginLeft: '8px' }}>
                                     <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="2"
                                         strokeLinecap="round" strokeLinejoin="round" />
                                 </svg>
@@ -449,9 +355,7 @@ const Home = () => {
                     </div>
                 </div>
             </section>
-
-
-            </>
+        </>
     );
 };
 

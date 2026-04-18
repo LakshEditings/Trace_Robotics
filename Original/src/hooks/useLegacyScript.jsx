@@ -83,56 +83,6 @@ export const useLegacyScript = () => {
             });
         };
 
-        // ====== HERO SLIDER ======
-        const initSlider = () => {
-            const slides = document.querySelectorAll('.hero-slider .slide');
-            const dots = document.querySelectorAll('.slider-dots .dot');
-            const prevBtn = document.querySelector('.prev-slide');
-            const nextBtn = document.querySelector('.next-slide');
-            
-            if (slides.length === 0) return;
-
-            const showSlide = (index) => {
-                if (index >= slides.length) index = 0;
-                if (index < 0) index = slides.length - 1;
-                
-                slides.forEach(slide => slide.classList.remove('active'));
-                dots.forEach(dot => dot.classList.remove('active'));
-                
-                if (slides[index]) slides[index].classList.add('active');
-                if (dots[index]) dots[index].classList.add('active');
-                currentSlide = index;
-            };
-
-            const nextSlide = () => showSlide(currentSlide + 1);
-            const prevSlide = () => showSlide(currentSlide - 1);
-
-            if (nextBtn) {
-                nextBtn.addEventListener('click', () => {
-                    clearInterval(slideInterval);
-                    nextSlide();
-                    slideInterval = setInterval(nextSlide, 5000);
-                });
-            }
-            if (prevBtn) {
-                prevBtn.addEventListener('click', () => {
-                    clearInterval(slideInterval);
-                    prevSlide();
-                    slideInterval = setInterval(nextSlide, 5000);
-                });
-            }
-            
-            slideInterval = setInterval(nextSlide, 5000);
-            
-            dots.forEach((dot, index) => {
-                dot.addEventListener('click', () => {
-                    clearInterval(slideInterval);
-                    showSlide(index);
-                    slideInterval = setInterval(nextSlide, 5000);
-                });
-            });
-        };
-
         // ====== THEME TOGGLE ======
         let themeListener;
         const initTheme = () => {
